@@ -1,0 +1,312 @@
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\AjaxCaller.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\AjaxCaller.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\App.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\App.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\ClientGeneralTools.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\ClientGeneralTools.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\CustomEntities.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\CustomEntities.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\DataTable.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\DataTable.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\Entities.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\Entities.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\IgGrid.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\IgGrid.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\JsGrid.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\JsGrid.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\MessageBox.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\MessageBox.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\Home\Home.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\Home\Home.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\Shared.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\Shared.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\SystemTools.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\SystemTools.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\AjaxCaller.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\AjaxCaller.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\App.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\App.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\ClientGeneralTools.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\ClientGeneralTools.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\CustomEntities.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\CustomEntities.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\DataTable.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\DataTable.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\Entities.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\Entities.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\IgGrid.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\IgGrid.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\JsGrid.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\JsGrid.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\MessageBox.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\MessageBox.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\Home\Home.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\Home\Home.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\Shared.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\Shared.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\SystemTools.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\SystemTools.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\AjaxCaller.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\AjaxCaller.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\App.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\App.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\ClientGeneralTools.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\ClientGeneralTools.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\CustomEntities.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\CustomEntities.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\DataTable.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\DataTable.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\Entities.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\Entities.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\IgGrid.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\IgGrid.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\JsGrid.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\JsGrid.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\MessageBox.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\MessageBox.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\Home\Home.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\Home\Home.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\Shared.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\Shared.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\SystemTools.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\SystemTools.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\AjaxCaller.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\AjaxCaller.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\App.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\App.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\ClientGeneralTools.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\ClientGeneralTools.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\CustomEntities.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\CustomEntities.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\DataTable.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\DataTable.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\Entities.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\Entities.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\IgGrid.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\IgGrid.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\JsGrid.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\JsGrid.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\MessageBox.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\MessageBox.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\Home\Home.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\Home\Home.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\Shared.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\Shared.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\SystemTools.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\SystemTools.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\AjaxCaller.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\AjaxCaller.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\App.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\App.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\ClientGeneralTools.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\ClientGeneralTools.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\CustomEntities.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\CustomEntities.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\DataTable.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\DataTable.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\Entities.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\Entities.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\IgGrid.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\IgGrid.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\JsGrid.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\JsGrid.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\MessageBox.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\MessageBox.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\Home\Home.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\Home\Home.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\Shared.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\Shared.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\SystemTools.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\SystemTools.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\AjaxCaller.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\AjaxCaller.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\App.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\App.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\ClientGeneralTools.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\ClientGeneralTools.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\CustomEntities.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\CustomEntities.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\DataTable.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\DataTable.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\Entities.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\Entities.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\IgGrid.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\IgGrid.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\JsGrid.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\JsGrid.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\MessageBox.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\MessageBox.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\Home\Home.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\Home\Home.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\Shared.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\Shared.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\SystemTools.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\SystemTools.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\AjaxCaller.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\AjaxCaller.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\App.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\App.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\ClientGeneralTools.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\ClientGeneralTools.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\CustomEntities.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\CustomEntities.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\DataTable.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\DataTable.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\Entities.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\Entities.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\IgGrid.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\IgGrid.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\JsGrid.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\JsGrid.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\MessageBox.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\MessageBox.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\Home\Home.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\Home\Home.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\Shared.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\Shared.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\SystemTools.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\SystemTools.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\AjaxCaller.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\AjaxCaller.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\App.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\App.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\ClientGeneralTools.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\ClientGeneralTools.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\CustomEntities.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\CustomEntities.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\DataTable.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\DataTable.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\Entities.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\Entities.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\IgGrid.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\IgGrid.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\JsGrid.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\JsGrid.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\MessageBox.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\MessageBox.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\Home\Home.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\Home\Home.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\Shared.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\Shared.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\SystemTools.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\SystemTools.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\AjaxCaller.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\AjaxCaller.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\App.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\App.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\ClientGeneralTools.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\ClientGeneralTools.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\CustomEntities.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\CustomEntities.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\DataTable.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\DataTable.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\Entities.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\Entities.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\IgGrid.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\IgGrid.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\JsGrid.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\JsGrid.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\MessageBox.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\MessageBox.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\Home\Home.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\Home\Home.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\Shared.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\Shared.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\SystemTools.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\SystemTools.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\AjaxCaller.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\AjaxCaller.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\App.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\App.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\ClientGeneralTools.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\ClientGeneralTools.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\CustomEntities.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\CustomEntities.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\DataTable.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\DataTable.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\Entities.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\Entities.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\IgGrid.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\IgGrid.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\JsGrid.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\JsGrid.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\MessageBox.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\MessageBox.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\Home\Home.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\Home\Home.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\Shared.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\Shared.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\SystemTools.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\SystemTools.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\AjaxCaller.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\AjaxCaller.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\App.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\App.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\ClientGeneralTools.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\ClientGeneralTools.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\CustomEntities.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\CustomEntities.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\DataTable.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\DataTable.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\Entities.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\Entities.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\IgGrid.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\IgGrid.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\JsGrid.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\JsGrid.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\MessageBox.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\MessageBox.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\Home\Home.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\Home\Home.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\Shared.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\Shared.js.map
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\SystemTools.js
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\WebUI\ClientApp\SystemTools.js.map
+F:\Sameh\NewSystem\WebUI\WebUI\ClientApp\AjaxCaller.js
+F:\Sameh\NewSystem\WebUI\WebUI\ClientApp\AjaxCaller.js.map
+F:\Sameh\NewSystem\WebUI\WebUI\ClientApp\App.js
+F:\Sameh\NewSystem\WebUI\WebUI\ClientApp\App.js.map
+F:\Sameh\NewSystem\WebUI\WebUI\ClientApp\ClientGeneralTools.js
+F:\Sameh\NewSystem\WebUI\WebUI\ClientApp\ClientGeneralTools.js.map
+F:\Sameh\NewSystem\WebUI\WebUI\ClientApp\CustomEntities.js
+F:\Sameh\NewSystem\WebUI\WebUI\ClientApp\CustomEntities.js.map
+F:\Sameh\NewSystem\WebUI\WebUI\ClientApp\DataTable.js
+F:\Sameh\NewSystem\WebUI\WebUI\ClientApp\DataTable.js.map
+F:\Sameh\NewSystem\WebUI\WebUI\ClientApp\Entities.js
+F:\Sameh\NewSystem\WebUI\WebUI\ClientApp\Entities.js.map
+F:\Sameh\NewSystem\WebUI\WebUI\ClientApp\IgGrid.js
+F:\Sameh\NewSystem\WebUI\WebUI\ClientApp\IgGrid.js.map
+F:\Sameh\NewSystem\WebUI\WebUI\ClientApp\JsGrid.js
+F:\Sameh\NewSystem\WebUI\WebUI\ClientApp\JsGrid.js.map
+F:\Sameh\NewSystem\WebUI\WebUI\ClientApp\MessageBox.js
+F:\Sameh\NewSystem\WebUI\WebUI\ClientApp\MessageBox.js.map
+F:\Sameh\NewSystem\WebUI\WebUI\ClientApp\Home\Home.js
+F:\Sameh\NewSystem\WebUI\WebUI\ClientApp\Home\Home.js.map
+F:\Sameh\NewSystem\WebUI\WebUI\ClientApp\Shared.js
+F:\Sameh\NewSystem\WebUI\WebUI\ClientApp\Shared.js.map
+F:\Sameh\NewSystem\WebUI\WebUI\ClientApp\SystemTools.js
+F:\Sameh\NewSystem\WebUI\WebUI\ClientApp\SystemTools.js.map
+F:\Sameh\NewSystem\WebUI\WebUI\ClientApp\AjaxCaller.js
+F:\Sameh\NewSystem\WebUI\WebUI\ClientApp\AjaxCaller.js.map
+F:\Sameh\NewSystem\WebUI\WebUI\ClientApp\App.js
+F:\Sameh\NewSystem\WebUI\WebUI\ClientApp\App.js.map
+F:\Sameh\NewSystem\WebUI\WebUI\ClientApp\ClientGeneralTools.js
+F:\Sameh\NewSystem\WebUI\WebUI\ClientApp\ClientGeneralTools.js.map
+F:\Sameh\NewSystem\WebUI\WebUI\ClientApp\CustomEntities.js
+F:\Sameh\NewSystem\WebUI\WebUI\ClientApp\CustomEntities.js.map
+F:\Sameh\NewSystem\WebUI\WebUI\ClientApp\DataTable.js
+F:\Sameh\NewSystem\WebUI\WebUI\ClientApp\DataTable.js.map
+F:\Sameh\NewSystem\WebUI\WebUI\ClientApp\Entities.js
+F:\Sameh\NewSystem\WebUI\WebUI\ClientApp\Entities.js.map
+F:\Sameh\NewSystem\WebUI\WebUI\ClientApp\IgGrid.js
+F:\Sameh\NewSystem\WebUI\WebUI\ClientApp\IgGrid.js.map
+F:\Sameh\NewSystem\WebUI\WebUI\ClientApp\JsGrid.js
+F:\Sameh\NewSystem\WebUI\WebUI\ClientApp\JsGrid.js.map
+F:\Sameh\NewSystem\WebUI\WebUI\ClientApp\MessageBox.js
+F:\Sameh\NewSystem\WebUI\WebUI\ClientApp\MessageBox.js.map
+F:\Sameh\NewSystem\WebUI\WebUI\ClientApp\Home\Home.js
+F:\Sameh\NewSystem\WebUI\WebUI\ClientApp\Home\Home.js.map
+F:\Sameh\NewSystem\WebUI\WebUI\ClientApp\Shared.js
+F:\Sameh\NewSystem\WebUI\WebUI\ClientApp\Shared.js.map
+F:\Sameh\NewSystem\WebUI\WebUI\ClientApp\SystemTools.js
+F:\Sameh\NewSystem\WebUI\WebUI\ClientApp\SystemTools.js.map

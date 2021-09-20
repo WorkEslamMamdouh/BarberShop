@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f43b4e3c63a54233aa65e59cf8539bca" Name="Diagram1">
+        <EntityTypeShape EntityType="SamahModel.Table_Tim_work" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SamahModel.Table_Server" Width="1.5" PointX="5.125" PointY="1.375" />
+        <EntityTypeShape EntityType="SamahModel.Table_Hagz" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="SamahModel.Table_LastNum" Width="1.5" PointX="2.75" PointY="3.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

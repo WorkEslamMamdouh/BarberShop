@@ -1,0 +1,948 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ElWassemDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CATEGRE">
+    <Key>
+      <PropertyRef Name="ID_CAT" />
+    </Key>
+    <Property Name="ID_CAT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name_CAT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PRODUCTs" Relationship="Self.FK_PRODUCT_CATEGRES1" FromRole="CATEGRES" ToRole="PRODUCT" />
+  </EntityType>
+  <EntityType Name="CUSTOMER">
+    <Key>
+      <PropertyRef Name="CUSTOMER_ID" />
+    </Key>
+    <Property Name="CUSTOMER_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CUSTOMER_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CUSTOMER_ADDRES" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CUSTOMER_ADDRES_2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PHONE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ORDER_DELIVERY" Relationship="Self.FK_ORDER_DELIVERY_CUSTOMER" FromRole="CUSTOMER" ToRole="ORDER_DELIVERY" />
+  </EntityType>
+  <EntityType Name="EMPLOYEE">
+    <Key>
+      <PropertyRef Name="EMPLOYEE_ID" />
+    </Key>
+    <Property Name="EMPLOYEE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EMPLOYEE_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EMPLOYEE_PHONE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ID_User" Type="Int32" />
+    <Property Name="id_Type_EMPLOYEE" Type="Int32" />
+    <NavigationProperty Name="LoginPage" Relationship="Self.FK_EMPLOYEE_LoginPage1" FromRole="EMPLOYEE" ToRole="LoginPage" />
+    <NavigationProperty Name="Type_EMPLOYEE" Relationship="Self.FK_EMPLOYEE_Type_EMPLOYEE" FromRole="EMPLOYEE" ToRole="Type_EMPLOYEE" />
+    <NavigationProperty Name="ORDER_DELIVERY" Relationship="Self.FK_ORDER_DELIVERY_EMPLOYEE" FromRole="EMPLOYEE" ToRole="ORDER_DELIVERY" />
+    <NavigationProperty Name="ORDER_SOFRA" Relationship="Self.FK_ORDER_SOFRA_EMPLOYEE" FromRole="EMPLOYEE" ToRole="ORDER_SOFRA" />
+    <NavigationProperty Name="ORDER_TECAYE" Relationship="Self.FK_ORDER_TECAYE_EMPLOYEE" FromRole="EMPLOYEE" ToRole="ORDER_TECAYE" />
+  </EntityType>
+  <EntityType Name="ITEME">
+    <Key>
+      <PropertyRef Name="ID_Iteme" />
+    </Key>
+    <Property Name="ID_Iteme" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Type_Iteme" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="QONTTE_Iteme" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Pirce_Iteme" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="DATE_Iteme" Type="DateTime" Precision="3" />
+    <Property Name="DATE_Expir_Iteme" Type="DateTime" Precision="3" />
+    <Property Name="Supplier_Iteme" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ID_STORE" Type="Int32" />
+    <NavigationProperty Name="STORE" Relationship="Self.FK_ITEME_STORE" FromRole="ITEME" ToRole="STORE" />
+  </EntityType>
+  <EntityType Name="LoginPage">
+    <Key>
+      <PropertyRef Name="ID_User" />
+    </Key>
+    <Property Name="ID_User" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="WepFormLoad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Open_Login" Type="Boolean" />
+    <NavigationProperty Name="EMPLOYEEs" Relationship="Self.FK_EMPLOYEE_LoginPage1" FromRole="LoginPage" ToRole="EMPLOYEE" />
+    <NavigationProperty Name="Settings" Relationship="Self.FK_Settings_LoginPage" FromRole="LoginPage" ToRole="Settings" />
+  </EntityType>
+  <EntityType Name="Message_Chat">
+    <Key>
+      <PropertyRef Name="id_Message" />
+    </Key>
+    <Property Name="id_Message" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name_Send_Message" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Date_Send" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Text_Send" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ORDER_DELIVERY">
+    <Key>
+      <PropertyRef Name="ID_ORDER_Delivery" />
+    </Key>
+    <Property Name="ID_ORDER_Delivery" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EMPLOYEE_ID" Type="Int32" />
+    <Property Name="Namber_Order_Delivery" Type="Int32" />
+    <Property Name="Date_Order_Delivery" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CUSTOMER_ID" Type="Int32" />
+    <Property Name="Total_All" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Tax" Type="Double" />
+    <Property Name="type_order" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Name_Pilot" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Confirmation" Type="Boolean" />
+    <Property Name="Num_Day" Type="Int32" />
+    <NavigationProperty Name="CUSTOMER" Relationship="Self.FK_ORDER_DELIVERY_CUSTOMER" FromRole="ORDER_DELIVERY" ToRole="CUSTOMER" />
+    <NavigationProperty Name="EMPLOYEE" Relationship="Self.FK_ORDER_DELIVERY_EMPLOYEE" FromRole="ORDER_DELIVERY" ToRole="EMPLOYEE" />
+    <NavigationProperty Name="Table_two_days" Relationship="Self.FK_ORDER_DELIVERY_Table_two_days" FromRole="ORDER_DELIVERY" ToRole="Table_two_days" />
+    <NavigationProperty Name="Stok_ORDER_DELIVERY" Relationship="Self.FK_Stok_ORDER_DELIVERY_ORDER_DELIVERY" FromRole="ORDER_DELIVERY" ToRole="Stok_ORDER_DELIVERY" />
+  </EntityType>
+  <EntityType Name="ORDER_SOFRA">
+    <Key>
+      <PropertyRef Name="ID_ORDER_SOFRA" />
+    </Key>
+    <Property Name="ID_ORDER_SOFRA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="QONTTE_ORDER_SOFRA" Type="Int32" />
+    <Property Name="TAX_ORDER_SOFRA" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="SERVICE_ORDER_SOFRA" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="SOFRA_ID" Type="Int32" />
+    <Property Name="EMPLOYEE_ID" Type="Int32" />
+    <Property Name="Namber_Order_Sofra" Type="Int32" />
+    <Property Name="Date_Order_Sofra" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="EMPLOYEE" Relationship="Self.FK_ORDER_SOFRA_EMPLOYEE" FromRole="ORDER_SOFRA" ToRole="EMPLOYEE" />
+    <NavigationProperty Name="SOFRA" Relationship="Self.FK_ORDER_SOFRA_SOFRA" FromRole="ORDER_SOFRA" ToRole="SOFRA" />
+  </EntityType>
+  <EntityType Name="ORDER_TECAYE">
+    <Key>
+      <PropertyRef Name="ID_Order_Tecaye" />
+    </Key>
+    <Property Name="ID_Order_Tecaye" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date_Order_Tecaye" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EMPLOYEE_ID" Type="Int32" />
+    <Property Name="Namber_Order_Tecaye" Type="Int32" />
+    <Property Name="Total_All" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="type_order" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Num_Day" Type="Int32" />
+    <NavigationProperty Name="EMPLOYEE" Relationship="Self.FK_ORDER_TECAYE_EMPLOYEE" FromRole="ORDER_TECAYE" ToRole="EMPLOYEE" />
+    <NavigationProperty Name="Table_two_days" Relationship="Self.FK_ORDER_TECAYE_Table_two_days" FromRole="ORDER_TECAYE" ToRole="Table_two_days" />
+    <NavigationProperty Name="Stock_ORDER_TECAYE" Relationship="Self.FK_Stock_ORDER_TECAYE_ORDER_TECAYE" FromRole="ORDER_TECAYE" ToRole="Stock_ORDER_TECAYE" />
+  </EntityType>
+  <EntityType Name="Outlet">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Dasc_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="pirce" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Num_Day" Type="Int32" />
+  </EntityType>
+  <EntityType Name="PRODUCT">
+    <Key>
+      <PropertyRef Name="PRODUCT_ID" />
+    </Key>
+    <Property Name="PRODUCT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PRODUCT_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PRODUCT_QET" Type="Int32" />
+    <Property Name="PRODUCT_PRICE" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="ID_CAT" Type="Int32" />
+    <NavigationProperty Name="CATEGRE" Relationship="Self.FK_PRODUCT_CATEGRES1" FromRole="PRODUCT" ToRole="CATEGRES" />
+  </EntityType>
+  <EntityType Name="Report_Parameters">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Report" Type="Int32" />
+    <Property Name="Parameter_1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Parameter_2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Parameter_3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Parameter_4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Parameter_5" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Parameter_6" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Parameter_7" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Parameter_8" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Parameter_9" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Settings_Report" Relationship="Self.FK_Report_Parameters_Settings_Report" FromRole="Report_Parameters" ToRole="Settings_Report" />
+  </EntityType>
+  <EntityType Name="Send_Message">
+    <Key>
+      <PropertyRef Name="id_Message" />
+    </Key>
+    <Property Name="id_Message" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name_Send_Message" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Date_Send" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Text_Send" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="open_user" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Setting">
+    <Key>
+      <PropertyRef Name="id_Settings" />
+    </Key>
+    <Property Name="id_Settings" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Notes" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="ID_User" Type="Int32" />
+    <NavigationProperty Name="LoginPage" Relationship="Self.FK_Settings_LoginPage" FromRole="Settings" ToRole="LoginPage" />
+    <NavigationProperty Name="User_sales" Relationship="Self.FK_User_sales_Settings" FromRole="Settings" ToRole="User_sales" />
+  </EntityType>
+  <EntityType Name="Settings_Report">
+    <Key>
+      <PropertyRef Name="ID_Report" />
+    </Key>
+    <Property Name="ID_Report" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Button_Print" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name_Report" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Name_Stored_Report" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Report_Parameters" Relationship="Self.FK_Report_Parameters_Settings_Report" FromRole="Settings_Report" ToRole="Report_Parameters" />
+  </EntityType>
+  <EntityType Name="SOFRA">
+    <Key>
+      <PropertyRef Name="SOFRA_ID" />
+    </Key>
+    <Property Name="SOFRA_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="ORDER_SOFRA" Relationship="Self.FK_ORDER_SOFRA_SOFRA" FromRole="SOFRA" ToRole="ORDER_SOFRA" />
+  </EntityType>
+  <EntityType Name="Stock_ORDER_TECAYE">
+    <Key>
+      <PropertyRef Name="ID_TECAYE" />
+    </Key>
+    <Property Name="ID_TECAYE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name_Product_sell" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Quantity_sell" Type="Double" />
+    <Property Name="price_One_part" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Total_Price_One_Part" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Notes_Order" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ID_Order_Tecaye" Type="Int32" />
+    <NavigationProperty Name="ORDER_TECAYE" Relationship="Self.FK_Stock_ORDER_TECAYE_ORDER_TECAYE" FromRole="Stock_ORDER_TECAYE" ToRole="ORDER_TECAYE" />
+  </EntityType>
+  <EntityType Name="Stok_ORDER_DELIVERY">
+    <Key>
+      <PropertyRef Name="ID_DELIVERY" />
+    </Key>
+    <Property Name="ID_DELIVERY" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name_Product_sell" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Quantity_sell" Type="Double" />
+    <Property Name="price_One_part" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Total_Price_One_Part" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Notes_Order" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FK_ORDER_Delivery" Type="Int32" />
+    <NavigationProperty Name="ORDER_DELIVERY" Relationship="Self.FK_Stok_ORDER_DELIVERY_ORDER_DELIVERY" FromRole="Stok_ORDER_DELIVERY" ToRole="ORDER_DELIVERY" />
+  </EntityType>
+  <EntityType Name="STORE">
+    <Key>
+      <PropertyRef Name="ID_STORE" />
+    </Key>
+    <Property Name="ID_STORE" Type="Int32" Nullable="false" />
+    <Property Name="NAME_STORE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ITEMEs" Relationship="Self.FK_ITEME_STORE" FromRole="STORE" ToRole="ITEME" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Table_two_days">
+    <Key>
+      <PropertyRef Name="Num_Day" />
+    </Key>
+    <Property Name="Num_Day" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="ORDER_DELIVERY" Relationship="Self.FK_ORDER_DELIVERY_Table_two_days" FromRole="Table_two_days" ToRole="ORDER_DELIVERY" />
+    <NavigationProperty Name="ORDER_TECAYE" Relationship="Self.FK_ORDER_TECAYE_Table_two_days" FromRole="Table_two_days" ToRole="ORDER_TECAYE" />
+  </EntityType>
+  <EntityType Name="Type_EMPLOYEE">
+    <Key>
+      <PropertyRef Name="id_Type_EMPLOYEE" />
+    </Key>
+    <Property Name="id_Type_EMPLOYEE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Type_EMP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="EMPLOYEEs" Relationship="Self.FK_EMPLOYEE_Type_EMPLOYEE" FromRole="Type_EMPLOYEE" ToRole="EMPLOYEE" />
+  </EntityType>
+  <EntityType Name="User_sales">
+    <Key>
+      <PropertyRef Name="id_User_sales" />
+    </Key>
+    <Property Name="id_User_sales" Type="Int32" Nullable="false" />
+    <Property Name="id_Settings" Type="Int32" />
+    <NavigationProperty Name="Setting" Relationship="Self.FK_User_sales_Settings" FromRole="User_sales" ToRole="Settings" />
+  </EntityType>
+  <Association Name="FK_PRODUCT_CATEGRES1">
+    <End Role="CATEGRES" Type="Self.CATEGRE" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CATEGRES">
+        <PropertyRef Name="ID_CAT" />
+      </Principal>
+      <Dependent Role="PRODUCT">
+        <PropertyRef Name="ID_CAT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ORDER_DELIVERY_CUSTOMER">
+    <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ORDER_DELIVERY" Type="Self.ORDER_DELIVERY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CUSTOMER">
+        <PropertyRef Name="CUSTOMER_ID" />
+      </Principal>
+      <Dependent Role="ORDER_DELIVERY">
+        <PropertyRef Name="CUSTOMER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EMPLOYEE_LoginPage1">
+    <End Role="LoginPage" Type="Self.LoginPage" Multiplicity="0..1" />
+    <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LoginPage">
+        <PropertyRef Name="ID_User" />
+      </Principal>
+      <Dependent Role="EMPLOYEE">
+        <PropertyRef Name="ID_User" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EMPLOYEE_Type_EMPLOYEE">
+    <End Role="Type_EMPLOYEE" Type="Self.Type_EMPLOYEE" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Type_EMPLOYEE">
+        <PropertyRef Name="id_Type_EMPLOYEE" />
+      </Principal>
+      <Dependent Role="EMPLOYEE">
+        <PropertyRef Name="id_Type_EMPLOYEE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ORDER_DELIVERY_EMPLOYEE">
+    <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ORDER_DELIVERY" Type="Self.ORDER_DELIVERY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLOYEE">
+        <PropertyRef Name="EMPLOYEE_ID" />
+      </Principal>
+      <Dependent Role="ORDER_DELIVERY">
+        <PropertyRef Name="EMPLOYEE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ORDER_SOFRA_EMPLOYEE">
+    <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ORDER_SOFRA" Type="Self.ORDER_SOFRA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLOYEE">
+        <PropertyRef Name="EMPLOYEE_ID" />
+      </Principal>
+      <Dependent Role="ORDER_SOFRA">
+        <PropertyRef Name="EMPLOYEE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ORDER_TECAYE_EMPLOYEE">
+    <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ORDER_TECAYE" Type="Self.ORDER_TECAYE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLOYEE">
+        <PropertyRef Name="EMPLOYEE_ID" />
+      </Principal>
+      <Dependent Role="ORDER_TECAYE">
+        <PropertyRef Name="EMPLOYEE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ITEME_STORE">
+    <End Role="STORE" Type="Self.STORE" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ITEME" Type="Self.ITEME" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="STORE">
+        <PropertyRef Name="ID_STORE" />
+      </Principal>
+      <Dependent Role="ITEME">
+        <PropertyRef Name="ID_STORE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Settings_LoginPage">
+    <End Role="LoginPage" Type="Self.LoginPage" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Settings" Type="Self.Setting" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LoginPage">
+        <PropertyRef Name="ID_User" />
+      </Principal>
+      <Dependent Role="Settings">
+        <PropertyRef Name="ID_User" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ORDER_DELIVERY_Table_two_days">
+    <End Role="Table_two_days" Type="Self.Table_two_days" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ORDER_DELIVERY" Type="Self.ORDER_DELIVERY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Table_two_days">
+        <PropertyRef Name="Num_Day" />
+      </Principal>
+      <Dependent Role="ORDER_DELIVERY">
+        <PropertyRef Name="Num_Day" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Stok_ORDER_DELIVERY_ORDER_DELIVERY">
+    <End Role="ORDER_DELIVERY" Type="Self.ORDER_DELIVERY" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Stok_ORDER_DELIVERY" Type="Self.Stok_ORDER_DELIVERY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ORDER_DELIVERY">
+        <PropertyRef Name="ID_ORDER_Delivery" />
+      </Principal>
+      <Dependent Role="Stok_ORDER_DELIVERY">
+        <PropertyRef Name="FK_ORDER_Delivery" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ORDER_SOFRA_SOFRA">
+    <End Role="SOFRA" Type="Self.SOFRA" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ORDER_SOFRA" Type="Self.ORDER_SOFRA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SOFRA">
+        <PropertyRef Name="SOFRA_ID" />
+      </Principal>
+      <Dependent Role="ORDER_SOFRA">
+        <PropertyRef Name="SOFRA_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ORDER_TECAYE_Table_two_days">
+    <End Role="Table_two_days" Type="Self.Table_two_days" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ORDER_TECAYE" Type="Self.ORDER_TECAYE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Table_two_days">
+        <PropertyRef Name="Num_Day" />
+      </Principal>
+      <Dependent Role="ORDER_TECAYE">
+        <PropertyRef Name="Num_Day" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Stock_ORDER_TECAYE_ORDER_TECAYE">
+    <End Role="ORDER_TECAYE" Type="Self.ORDER_TECAYE" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Stock_ORDER_TECAYE" Type="Self.Stock_ORDER_TECAYE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ORDER_TECAYE">
+        <PropertyRef Name="ID_Order_Tecaye" />
+      </Principal>
+      <Dependent Role="Stock_ORDER_TECAYE">
+        <PropertyRef Name="ID_Order_Tecaye" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Report_Parameters_Settings_Report">
+    <End Role="Settings_Report" Type="Self.Settings_Report" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Report_Parameters" Type="Self.Report_Parameters" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Settings_Report">
+        <PropertyRef Name="ID_Report" />
+      </Principal>
+      <Dependent Role="Report_Parameters">
+        <PropertyRef Name="ID_Report" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_sales_Settings">
+    <End Role="Settings" Type="Self.Setting" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="User_sales" Type="Self.User_sales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Settings">
+        <PropertyRef Name="id_Settings" />
+      </Principal>
+      <Dependent Role="User_sales">
+        <PropertyRef Name="id_Settings" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ElWassemDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CATEGRES" EntityType="Self.CATEGRE" />
+    <EntitySet Name="CUSTOMERs" EntityType="Self.CUSTOMER" />
+    <EntitySet Name="EMPLOYEEs" EntityType="Self.EMPLOYEE" />
+    <EntitySet Name="ITEMEs" EntityType="Self.ITEME" />
+    <EntitySet Name="LoginPages" EntityType="Self.LoginPage" />
+    <EntitySet Name="Message_Chat" EntityType="Self.Message_Chat" />
+    <EntitySet Name="ORDER_DELIVERY" EntityType="Self.ORDER_DELIVERY" />
+    <EntitySet Name="ORDER_SOFRA" EntityType="Self.ORDER_SOFRA" />
+    <EntitySet Name="ORDER_TECAYE" EntityType="Self.ORDER_TECAYE" />
+    <EntitySet Name="Outlets" EntityType="Self.Outlet" />
+    <EntitySet Name="PRODUCTs" EntityType="Self.PRODUCT" />
+    <EntitySet Name="Report_Parameters" EntityType="Self.Report_Parameters" />
+    <EntitySet Name="Send_Message" EntityType="Self.Send_Message" />
+    <EntitySet Name="Settings" EntityType="Self.Setting" />
+    <EntitySet Name="Settings_Report" EntityType="Self.Settings_Report" />
+    <EntitySet Name="SOFRAs" EntityType="Self.SOFRA" />
+    <EntitySet Name="Stock_ORDER_TECAYE" EntityType="Self.Stock_ORDER_TECAYE" />
+    <EntitySet Name="Stok_ORDER_DELIVERY" EntityType="Self.Stok_ORDER_DELIVERY" />
+    <EntitySet Name="STOREs" EntityType="Self.STORE" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Table_two_days" EntityType="Self.Table_two_days" />
+    <EntitySet Name="Type_EMPLOYEE" EntityType="Self.Type_EMPLOYEE" />
+    <EntitySet Name="User_sales" EntityType="Self.User_sales" />
+    <AssociationSet Name="FK_PRODUCT_CATEGRES1" Association="Self.FK_PRODUCT_CATEGRES1">
+      <End Role="CATEGRES" EntitySet="CATEGRES" />
+      <End Role="PRODUCT" EntitySet="PRODUCTs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ORDER_DELIVERY_CUSTOMER" Association="Self.FK_ORDER_DELIVERY_CUSTOMER">
+      <End Role="CUSTOMER" EntitySet="CUSTOMERs" />
+      <End Role="ORDER_DELIVERY" EntitySet="ORDER_DELIVERY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EMPLOYEE_LoginPage1" Association="Self.FK_EMPLOYEE_LoginPage1">
+      <End Role="LoginPage" EntitySet="LoginPages" />
+      <End Role="EMPLOYEE" EntitySet="EMPLOYEEs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EMPLOYEE_Type_EMPLOYEE" Association="Self.FK_EMPLOYEE_Type_EMPLOYEE">
+      <End Role="Type_EMPLOYEE" EntitySet="Type_EMPLOYEE" />
+      <End Role="EMPLOYEE" EntitySet="EMPLOYEEs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ORDER_DELIVERY_EMPLOYEE" Association="Self.FK_ORDER_DELIVERY_EMPLOYEE">
+      <End Role="EMPLOYEE" EntitySet="EMPLOYEEs" />
+      <End Role="ORDER_DELIVERY" EntitySet="ORDER_DELIVERY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ORDER_SOFRA_EMPLOYEE" Association="Self.FK_ORDER_SOFRA_EMPLOYEE">
+      <End Role="EMPLOYEE" EntitySet="EMPLOYEEs" />
+      <End Role="ORDER_SOFRA" EntitySet="ORDER_SOFRA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ORDER_TECAYE_EMPLOYEE" Association="Self.FK_ORDER_TECAYE_EMPLOYEE">
+      <End Role="EMPLOYEE" EntitySet="EMPLOYEEs" />
+      <End Role="ORDER_TECAYE" EntitySet="ORDER_TECAYE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ITEME_STORE" Association="Self.FK_ITEME_STORE">
+      <End Role="STORE" EntitySet="STOREs" />
+      <End Role="ITEME" EntitySet="ITEMEs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Settings_LoginPage" Association="Self.FK_Settings_LoginPage">
+      <End Role="LoginPage" EntitySet="LoginPages" />
+      <End Role="Settings" EntitySet="Settings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ORDER_DELIVERY_Table_two_days" Association="Self.FK_ORDER_DELIVERY_Table_two_days">
+      <End Role="Table_two_days" EntitySet="Table_two_days" />
+      <End Role="ORDER_DELIVERY" EntitySet="ORDER_DELIVERY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Stok_ORDER_DELIVERY_ORDER_DELIVERY" Association="Self.FK_Stok_ORDER_DELIVERY_ORDER_DELIVERY">
+      <End Role="ORDER_DELIVERY" EntitySet="ORDER_DELIVERY" />
+      <End Role="Stok_ORDER_DELIVERY" EntitySet="Stok_ORDER_DELIVERY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ORDER_SOFRA_SOFRA" Association="Self.FK_ORDER_SOFRA_SOFRA">
+      <End Role="SOFRA" EntitySet="SOFRAs" />
+      <End Role="ORDER_SOFRA" EntitySet="ORDER_SOFRA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ORDER_TECAYE_Table_two_days" Association="Self.FK_ORDER_TECAYE_Table_two_days">
+      <End Role="Table_two_days" EntitySet="Table_two_days" />
+      <End Role="ORDER_TECAYE" EntitySet="ORDER_TECAYE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Stock_ORDER_TECAYE_ORDER_TECAYE" Association="Self.FK_Stock_ORDER_TECAYE_ORDER_TECAYE">
+      <End Role="ORDER_TECAYE" EntitySet="ORDER_TECAYE" />
+      <End Role="Stock_ORDER_TECAYE" EntitySet="Stock_ORDER_TECAYE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Report_Parameters_Settings_Report" Association="Self.FK_Report_Parameters_Settings_Report">
+      <End Role="Settings_Report" EntitySet="Settings_Report" />
+      <End Role="Report_Parameters" EntitySet="Report_Parameters" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_sales_Settings" Association="Self.FK_User_sales_Settings">
+      <End Role="Settings" EntitySet="Settings" />
+      <End Role="User_sales" EntitySet="User_sales" />
+    </AssociationSet>
+    <FunctionImport Name="Add_Emp">
+      <Parameter Name="user_name" Mode="In" Type="String" />
+      <Parameter Name="passwrd" Mode="In" Type="String" />
+      <Parameter Name="emp_nam" Mode="In" Type="String" />
+      <Parameter Name="emp_phone" Mode="In" Type="String" />
+      <Parameter Name="type_emp" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Add_Message_Chat">
+      <Parameter Name="Name_Send_Message" Mode="In" Type="String" />
+      <Parameter Name="Date_Send" Mode="In" Type="String" />
+      <Parameter Name="Text_Send" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Add_Message_open_Uesr">
+      <Parameter Name="Name_Send_Message" Mode="In" Type="String" />
+      <Parameter Name="Date_Send" Mode="In" Type="String" />
+      <Parameter Name="Text_Send" Mode="In" Type="String" />
+      <Parameter Name="open_user" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Add_Settings">
+      <Parameter Name="UserName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="addemp">
+      <Parameter Name="emp_nam" Mode="In" Type="String" />
+      <Parameter Name="emp_phone" Mode="In" Type="String" />
+      <Parameter Name="usar_name_emp" Mode="In" Type="String" />
+      <Parameter Name="passwrd_emp" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="all_The_Gard" ReturnType="Collection(ElWassemDBModel.all_The_Gard_Result)">
+      <Parameter Name="EMPLOYEE_NAME" Mode="In" Type="String" />
+      <Parameter Name="Date" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Date_Time_Now" ReturnType="Collection(DateTime)" />
+    <FunctionImport Name="delet_PRODUCT">
+      <Parameter Name="PRODUCT_NAME" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Delete_Cat">
+      <Parameter Name="Name_CAT" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Delete_Notifications">
+      <Parameter Name="ID_ORDER_Delivery" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="delete_order_in_Notifications">
+      <Parameter Name="ID_ORDER_Delivery" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Delete_Send_Message">
+      <Parameter Name="open_user" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="get_emp" ReturnType="Collection(ElWassemDBModel.get_emp_Result)">
+      <Parameter Name="newphone" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Get_Send_Message" ReturnType="Collection(ElWassemDBModel.Get_Send_Message_Result)">
+      <Parameter Name="open_user" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Get_Settings" ReturnType="Collection(ElWassemDBModel.Get_Settings_Result)">
+      <Parameter Name="UserName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Get_Settings_Report" ReturnType="Collection(ElWassemDBModel.Get_Settings_Report_Result)">
+      <Parameter Name="ID_Button_Print" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Get_Settings_Report_and_Parameter" ReturnType="Collection(ElWassemDBModel.Get_Settings_Report_and_Parameter_Result)">
+      <Parameter Name="ID_Button_Print" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="getPRODUCT_NAME" ReturnType="Collection(ElWassemDBModel.getPRODUCT_NAME_Result)">
+      <Parameter Name="Name_CAT" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="insert_castomer">
+      <Parameter Name="cast_name" Mode="In" Type="String" />
+      <Parameter Name="cast_addres1" Mode="In" Type="String" />
+      <Parameter Name="cast_addres2" Mode="In" Type="String" />
+      <Parameter Name="cast_phone" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="insert_Cat">
+      <Parameter Name="Name_CAT" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="insert_ORDER_DELIVERY">
+      <Parameter Name="UserName" Mode="In" Type="String" />
+      <Parameter Name="Namber_Order_Delivery" Mode="In" Type="Int32" />
+      <Parameter Name="Total_All" Mode="In" Type="Decimal" />
+      <Parameter Name="Date_Order_Delivery" Mode="In" Type="String" />
+      <Parameter Name="Tax" Mode="In" Type="Double" />
+      <Parameter Name="CUSTOMER_ID" Mode="In" Type="Int32" />
+      <Parameter Name="type_order" Mode="In" Type="String" />
+      <Parameter Name="Confirmation" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="insert_ORDER_TECAYE">
+      <Parameter Name="UserName" Mode="In" Type="String" />
+      <Parameter Name="Namber_Order_Tecaye" Mode="In" Type="Int32" />
+      <Parameter Name="Total_All" Mode="In" Type="Decimal" />
+      <Parameter Name="Date_Order_Tecaye" Mode="In" Type="String" />
+      <Parameter Name="type_order" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="insert_Outlet">
+      <Parameter Name="Dasc_Name" Mode="In" Type="String" />
+      <Parameter Name="pirce" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="insert_Stock_ORDER_TECAYE">
+      <Parameter Name="Name_Product_sell" Mode="In" Type="String" />
+      <Parameter Name="Quantity_sell" Mode="In" Type="Double" />
+      <Parameter Name="price_One_part" Mode="In" Type="Decimal" />
+      <Parameter Name="Total_Price_One_Part" Mode="In" Type="Decimal" />
+      <Parameter Name="Notes_Order" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="insert_Stok_ORDER_DELIVERY">
+      <Parameter Name="Name_Product_sell" Mode="In" Type="String" />
+      <Parameter Name="Quantity_sell" Mode="In" Type="Double" />
+      <Parameter Name="price_One_part" Mode="In" Type="Decimal" />
+      <Parameter Name="Total_Price_One_Part" Mode="In" Type="Decimal" />
+      <Parameter Name="Notes_Order" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="insert_Table_two_days" />
+    <FunctionImport Name="insrte_ORDER_TECAYE_All">
+      <Parameter Name="Name_Product_sell" Mode="In" Type="String" />
+      <Parameter Name="Quantity_sell" Mode="In" Type="Double" />
+      <Parameter Name="price_One_part" Mode="In" Type="Decimal" />
+      <Parameter Name="Total_Price_One_Part" Mode="In" Type="Decimal" />
+      <Parameter Name="Total_All" Mode="In" Type="Decimal" />
+      <Parameter Name="UserName_EMPLOYEE_ID" Mode="In" Type="String" />
+      <Parameter Name="Namber_Order_Tecaye" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Notifications_confirmation" ReturnType="Collection(ElWassemDBModel.Notifications_confirmation_Result)" />
+    <FunctionImport Name="Notifications_insert_Name_Pilot">
+      <Parameter Name="ID_ORDER_Delivery" Mode="In" Type="Int32" />
+      <Parameter Name="Name_Pilot" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Notifications_successful">
+      <Parameter Name="ID_ORDER_Delivery" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="open_and_close_Login">
+      <Parameter Name="UserName" Mode="In" Type="String" />
+      <Parameter Name="password" Mode="In" Type="String" />
+      <Parameter Name="Open_Login" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="Receipt_Order_delivery_one" ReturnType="Collection(ElWassemDBModel.Receipt_Order_delivery_one_Result)">
+      <Parameter Name="ID_ORDER_Delivery" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Receipt_Order_delivery_two" ReturnType="Collection(ElWassemDBModel.Receipt_Order_delivery_two_Result)">
+      <Parameter Name="ID_ORDER_Delivery" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Receipt_Order_Teky_one" ReturnType="Collection(ElWassemDBModel.Receipt_Order_Teky_one_Result)" />
+    <FunctionImport Name="Receipt_Order_Teky_two" ReturnType="Collection(ElWassemDBModel.Receipt_Order_Teky_two_Result)" />
+    <FunctionImport Name="search_by_pohne" ReturnType="Collection(ElWassemDBModel.search_by_pohne_Result)">
+      <Parameter Name="newphone" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="search_PRODUCT_NAME" ReturnType="Collection(ElWassemDBModel.search_PRODUCT_NAME_Result)">
+      <Parameter Name="Name_CAT" Mode="In" Type="String" />
+      <Parameter Name="PRODUCT_NAME" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="select_All_Message" ReturnType="Collection(ElWassemDBModel.select_All_Message_Result)" />
+    <FunctionImport Name="Select_All_Open_Uesr" ReturnType="Collection(ElWassemDBModel.Select_All_Open_Uesr_Result)" />
+    <FunctionImport Name="Select_All_User" ReturnType="Collection(String)" />
+    <FunctionImport Name="select_days">
+      <Parameter Name="Num_Day_out" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Select_List_Num_Order" ReturnType="Collection(Int32)" />
+    <FunctionImport Name="select_Pilot" ReturnType="Collection(String)" />
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(ElWassemDBModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(ElWassemDBModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <FunctionImport Name="spGetNameByUser" ReturnType="Collection(ElWassemDBModel.spGetNameByUser_Result)">
+      <Parameter Name="NameUser" Mode="In" Type="String" />
+      <Parameter Name="password" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spInsertPRODUCT">
+      <Parameter Name="PRODUCT_NAME" Mode="In" Type="String" />
+      <Parameter Name="PRODUCT_PRICE" Mode="In" Type="Decimal" />
+      <Parameter Name="PRODUCT_QET" Mode="In" Type="Decimal" />
+      <Parameter Name="Name_CAT" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="update_customer">
+      <Parameter Name="CUSTOMER_NAME" Mode="In" Type="String" />
+      <Parameter Name="CUSTOMER_ADDRES" Mode="In" Type="String" />
+      <Parameter Name="CUSTOMER_ADDRES_2" Mode="In" Type="String" />
+      <Parameter Name="PHONE" Mode="In" Type="String" />
+      <Parameter Name="newphone" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="update_emp">
+      <Parameter Name="phone" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="update_Emp_New">
+      <Parameter Name="user_name" Mode="In" Type="String" />
+      <Parameter Name="passwrd" Mode="In" Type="String" />
+      <Parameter Name="emp_nam" Mode="In" Type="String" />
+      <Parameter Name="emp_phone" Mode="In" Type="String" />
+      <Parameter Name="emp_phone_New" Mode="In" Type="String" />
+      <Parameter Name="type_emp" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Update_Settings">
+      <Parameter Name="Nots" Mode="In" Type="String" />
+      <Parameter Name="UserName" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="all_The_Gard_Result">
+    <Property Type="Int32" Name="ID" Nullable="true" />
+    <Property Type="String" Name="Name_Product" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="price_One_part" Nullable="true" Precision="19" />
+    <Property Type="Double" Name="Quantity_sell" Nullable="true" />
+    <Property Type="Decimal" Name="Total_Price_One_Part" Nullable="true" Precision="19" />
+    <Property Type="Decimal" Name="Shortage" Nullable="true" Precision="19" />
+    <Property Type="Double" Name="Task___" Nullable="true" />
+    <Property Type="String" Name="Day_Date" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Shift_User" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="Outlet_money" Nullable="true" Precision="19" />
+    <Property Type="Decimal" Name="All_Total" Nullable="true" Precision="19" />
+    <Property Type="Decimal" Name="Money_deficit" Nullable="true" Precision="19" />
+  </ComplexType>
+  <ComplexType Name="get_emp_Result">
+    <Property Type="String" Name="EMPLOYEE_NAME" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="EMPLOYEE_PHONE" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="UserName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="password" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Type_EMP" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="Get_Send_Message_Result">
+    <Property Type="Int32" Name="id_Message" Nullable="false" />
+    <Property Type="String" Name="Name_Send_Message" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Date_Send" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Text_Send" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="open_user" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="Get_Settings_Result">
+    <Property Type="Int32" Name="id_Settings" Nullable="true" />
+    <Property Type="String" Name="Notes" Nullable="true" MaxLength="300" />
+    <Property Type="Int32" Name="id_User_sales" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="Get_Settings_Report_Result">
+    <Property Type="Int32" Name="ID_Report" Nullable="false" />
+    <Property Type="String" Name="ID_Button_Print" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Name_Report" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Name_Stored_Report" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="Get_Settings_Report_and_Parameter_Result">
+    <Property Type="String" Name="ID_Button_Print" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Name_Report" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Name_Stored_Report" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Parameter_1" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Parameter_2" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Parameter_3" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Parameter_4" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Parameter_5" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Parameter_6" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Parameter_7" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Parameter_8" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Parameter_9" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="getPRODUCT_NAME_Result">
+    <Property Type="String" Name="PRODUCT_NAME" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="PRODUCT_PRICE" Nullable="true" Precision="19" />
+    <Property Type="Int32" Name="PRODUCT_QET" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="Notifications_confirmation_Result">
+    <Property Type="Int32" Name="ID_ORDER_Delivery" Nullable="false" />
+    <Property Type="Int32" Name="Namber_Order_Delivery" Nullable="true" />
+    <Property Type="String" Name="CUSTOMER_NAME" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="confirmation" Nullable="true" />
+    <Property Type="String" Name="PHONE" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Date_Order_Delivery" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Name_Pilot" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="Receipt_Order_delivery_one_Result">
+    <Property Type="Int32" Name="Namber_Order_Delivery" Nullable="true" />
+    <Property Type="String" Name="EMPLOYEE_NAME" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Name_Product_sell" Nullable="true" MaxLength="50" />
+    <Property Type="Double" Name="Quantity_sell" Nullable="true" />
+    <Property Type="Decimal" Name="price_One_part" Nullable="true" Precision="19" />
+    <Property Type="Decimal" Name="Total_Price_One_Part" Nullable="true" Precision="19" />
+    <Property Type="Decimal" Name="Total_All" Nullable="true" Precision="19" />
+    <Property Type="String" Name="Date_Order_Delivery" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Name_Pilot" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="type_order" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CUSTOMER_NAME" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CUSTOMER_ADDRES" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CUSTOMER_ADDRES_2" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PHONE" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="Receipt_Order_delivery_two_Result">
+    <Property Type="Int32" Name="Namber_Order_Delivery" Nullable="true" />
+    <Property Type="String" Name="Name_Product_sell" Nullable="true" MaxLength="50" />
+    <Property Type="Double" Name="Quantity_sell" Nullable="true" />
+    <Property Type="String" Name="Notes_Order" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="type_order" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Date_Order_Delivery" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="Receipt_Order_Teky_one_Result">
+    <Property Type="Int32" Name="Namber_Order_Tecaye" Nullable="true" />
+    <Property Type="String" Name="EMPLOYEE_NAME" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Name_Product_sell" Nullable="true" MaxLength="50" />
+    <Property Type="Double" Name="Quantity_sell" Nullable="true" />
+    <Property Type="Decimal" Name="price_One_part" Nullable="true" Precision="19" />
+    <Property Type="Decimal" Name="Total_Price_One_Part" Nullable="true" Precision="19" />
+    <Property Type="String" Name="Notes_Order" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="type_order" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="Total_All" Nullable="true" Precision="19" />
+    <Property Type="String" Name="Date_Order_Tecaye" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="Receipt_Order_Teky_two_Result">
+    <Property Type="Int32" Name="Namber_Order_Tecaye" Nullable="true" />
+    <Property Type="String" Name="Name_Product_sell" Nullable="true" MaxLength="50" />
+    <Property Type="Double" Name="Quantity_sell" Nullable="true" />
+    <Property Type="String" Name="type_order" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Notes_Order" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Date_Order_Tecaye" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="search_by_pohne_Result">
+    <Property Type="Int32" Name="CUSTOMER_ID" Nullable="false" />
+    <Property Type="String" Name="CUSTOMER_NAME" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CUSTOMER_ADDRES" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CUSTOMER_ADDRES_2" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PHONE" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="search_PRODUCT_NAME_Result">
+    <Property Type="Int32" Name="PRODUCT_ID" Nullable="false" />
+    <Property Type="String" Name="PRODUCT_NAME" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="PRODUCT_QET" Nullable="true" />
+    <Property Type="Decimal" Name="PRODUCT_PRICE" Nullable="true" Precision="19" />
+    <Property Type="Int32" Name="ID_CAT" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="select_All_Message_Result">
+    <Property Type="String" Name="Name_Send_Message" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Date_Send" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Text_Send" Nullable="true" MaxLength="500" />
+  </ComplexType>
+  <ComplexType Name="Select_All_Open_Uesr_Result">
+    <Property Type="Int32" Name="ID_User" Nullable="false" />
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="password" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="WepFormLoad" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="Open_Login" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="spGetNameByUser_Result">
+    <Property Type="Int32" Name="ID_User" Nullable="false" />
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="password" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="WepFormLoad" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="Open_Login" Nullable="true" />
+  </ComplexType>
+</Schema>

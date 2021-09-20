@@ -1,0 +1,86 @@
+c:\Users\Eslam\documents\visual studio 2017\Projects\WebUI\BLL\bin\Debug\BLL.dll
+c:\Users\Eslam\documents\visual studio 2017\Projects\WebUI\BLL\bin\Debug\BLL.pdb
+c:\Users\Eslam\documents\visual studio 2017\Projects\WebUI\BLL\bin\Debug\DAL.dll
+c:\Users\Eslam\documents\visual studio 2017\Projects\WebUI\BLL\bin\Debug\EntityFramework.dll
+c:\Users\Eslam\documents\visual studio 2017\Projects\WebUI\BLL\bin\Debug\DAL.pdb
+c:\Users\Eslam\documents\visual studio 2017\Projects\WebUI\BLL\bin\Debug\DAL.dll.config
+c:\Users\Eslam\documents\visual studio 2017\Projects\WebUI\BLL\bin\Debug\EntityFramework.xml
+c:\Users\Eslam\documents\visual studio 2017\Projects\WebUI\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+c:\Users\Eslam\documents\visual studio 2017\Projects\WebUI\BLL\obj\Debug\BLL.dll
+c:\Users\Eslam\documents\visual studio 2017\Projects\WebUI\BLL\obj\Debug\BLL.pdb
+C:\Users\Eslam\Desktop\WebUI\BLL\bin\Debug\BLL.dll
+C:\Users\Eslam\Desktop\WebUI\BLL\bin\Debug\BLL.pdb
+C:\Users\Eslam\Desktop\WebUI\BLL\bin\Debug\DAL.dll
+C:\Users\Eslam\Desktop\WebUI\BLL\bin\Debug\EntityFramework.dll
+C:\Users\Eslam\Desktop\WebUI\BLL\bin\Debug\DAL.pdb
+C:\Users\Eslam\Desktop\WebUI\BLL\bin\Debug\DAL.dll.config
+C:\Users\Eslam\Desktop\WebUI\BLL\bin\Debug\EntityFramework.xml
+C:\Users\Eslam\Desktop\WebUI\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+C:\Users\Eslam\Desktop\WebUI\BLL\obj\Debug\BLL.dll
+C:\Users\Eslam\Desktop\WebUI\BLL\obj\Debug\BLL.pdb
+C:\Users\Eslam\Desktop\FramWorck\WebUI\BLL\bin\Debug\BLL.dll
+C:\Users\Eslam\Desktop\FramWorck\WebUI\BLL\bin\Debug\BLL.pdb
+C:\Users\Eslam\Desktop\FramWorck\WebUI\BLL\bin\Debug\DAL.dll
+C:\Users\Eslam\Desktop\FramWorck\WebUI\BLL\bin\Debug\EntityFramework.dll
+C:\Users\Eslam\Desktop\FramWorck\WebUI\BLL\bin\Debug\DAL.pdb
+C:\Users\Eslam\Desktop\FramWorck\WebUI\BLL\bin\Debug\DAL.dll.config
+C:\Users\Eslam\Desktop\FramWorck\WebUI\BLL\bin\Debug\EntityFramework.xml
+C:\Users\Eslam\Desktop\FramWorck\WebUI\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+C:\Users\Eslam\Desktop\FramWorck\WebUI\BLL\obj\Debug\BLL.dll
+C:\Users\Eslam\Desktop\FramWorck\WebUI\BLL\obj\Debug\BLL.pdb
+D:\NewFramWork\New folder (2)\WebUI\BLL\bin\Debug\BLL.dll
+D:\NewFramWork\New folder (2)\WebUI\BLL\bin\Debug\BLL.pdb
+D:\NewFramWork\New folder (2)\WebUI\BLL\bin\Debug\DAL.dll
+D:\NewFramWork\New folder (2)\WebUI\BLL\bin\Debug\EntityFramework.dll
+D:\NewFramWork\New folder (2)\WebUI\BLL\bin\Debug\DAL.pdb
+D:\NewFramWork\New folder (2)\WebUI\BLL\bin\Debug\DAL.dll.config
+D:\NewFramWork\New folder (2)\WebUI\BLL\bin\Debug\EntityFramework.xml
+D:\NewFramWork\New folder (2)\WebUI\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+D:\NewFramWork\New folder (2)\WebUI\BLL\obj\Debug\BLL.dll
+D:\NewFramWork\New folder (2)\WebUI\BLL\obj\Debug\BLL.pdb
+D:\NewFramWork\WebUI 7-2-2021 - Copy\WebUI\BLL\bin\Debug\BLL.dll
+D:\NewFramWork\WebUI 7-2-2021 - Copy\WebUI\BLL\bin\Debug\BLL.pdb
+D:\NewFramWork\WebUI 7-2-2021 - Copy\WebUI\BLL\bin\Debug\DAL.dll
+D:\NewFramWork\WebUI 7-2-2021 - Copy\WebUI\BLL\bin\Debug\EntityFramework.dll
+D:\NewFramWork\WebUI 7-2-2021 - Copy\WebUI\BLL\bin\Debug\DAL.pdb
+D:\NewFramWork\WebUI 7-2-2021 - Copy\WebUI\BLL\bin\Debug\DAL.dll.config
+D:\NewFramWork\WebUI 7-2-2021 - Copy\WebUI\BLL\bin\Debug\EntityFramework.xml
+D:\NewFramWork\WebUI 7-2-2021 - Copy\WebUI\BLL\obj\Debug\BLL.csprojAssemblyReference.cache
+D:\NewFramWork\WebUI 7-2-2021 - Copy\WebUI\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+D:\NewFramWork\WebUI 7-2-2021 - Copy\WebUI\BLL\obj\Debug\BLL.csproj.CopyComplete
+D:\NewFramWork\WebUI 7-2-2021 - Copy\WebUI\BLL\obj\Debug\BLL.dll
+D:\NewFramWork\WebUI 7-2-2021 - Copy\WebUI\BLL\obj\Debug\BLL.pdb
+D:\NewFramWork\WebUI 7-2-2021 - Temp\WebUI\BLL\bin\Debug\BLL.dll
+D:\NewFramWork\WebUI 7-2-2021 - Temp\WebUI\BLL\bin\Debug\BLL.pdb
+D:\NewFramWork\WebUI 7-2-2021 - Temp\WebUI\BLL\bin\Debug\DAL.dll
+D:\NewFramWork\WebUI 7-2-2021 - Temp\WebUI\BLL\bin\Debug\EntityFramework.dll
+D:\NewFramWork\WebUI 7-2-2021 - Temp\WebUI\BLL\bin\Debug\DAL.pdb
+D:\NewFramWork\WebUI 7-2-2021 - Temp\WebUI\BLL\bin\Debug\DAL.dll.config
+D:\NewFramWork\WebUI 7-2-2021 - Temp\WebUI\BLL\bin\Debug\EntityFramework.xml
+D:\NewFramWork\WebUI 7-2-2021 - Temp\WebUI\BLL\obj\Debug\BLL.csprojAssemblyReference.cache
+D:\NewFramWork\WebUI 7-2-2021 - Temp\WebUI\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+D:\NewFramWork\WebUI 7-2-2021 - Temp\WebUI\BLL\obj\Debug\BLL.csproj.CopyComplete
+D:\NewFramWork\WebUI 7-2-2021 - Temp\WebUI\BLL\obj\Debug\BLL.dll
+D:\NewFramWork\WebUI 7-2-2021 - Temp\WebUI\BLL\obj\Debug\BLL.pdb
+D:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\BLL\bin\Debug\BLL.dll
+D:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\BLL\bin\Debug\BLL.pdb
+D:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\BLL\bin\Debug\DAL.dll
+D:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\BLL\bin\Debug\EntityFramework.dll
+D:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\BLL\bin\Debug\DAL.pdb
+D:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\BLL\bin\Debug\DAL.dll.config
+D:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\BLL\bin\Debug\EntityFramework.xml
+D:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\BLL\obj\Debug\BLL.csprojAssemblyReference.cache
+D:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+D:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\BLL\obj\Debug\BLL.csproj.CopyComplete
+D:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\BLL\obj\Debug\BLL.dll
+D:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\BLL\obj\Debug\BLL.pdb
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\BLL\bin\Debug\BLL.dll
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\BLL\bin\Debug\BLL.pdb
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\BLL\bin\Debug\DAL.dll
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\BLL\bin\Debug\EntityFramework.dll
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\BLL\bin\Debug\DAL.pdb
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\BLL\bin\Debug\DAL.dll.config
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\BLL\bin\Debug\EntityFramework.xml
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\BLL\obj\Debug\BLL.dll
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\BLL\obj\Debug\BLL.pdb
+G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache

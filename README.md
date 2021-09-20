@@ -1,2 +1,0 @@
-# BarberShop
-BarberShop

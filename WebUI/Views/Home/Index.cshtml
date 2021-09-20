@@ -1,0 +1,454 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+
+}
+
+<style>
+
+    .display_none {
+        display: none !important;
+    }
+
+    .Enter_Rows {
+        font-weight: bold;
+        background-color: #d40404;
+        color: wheat;
+    }
+
+    .search_Text {
+        display: block;
+        text-align: end;
+        /* width: 100%;
+        height: calc(2.25rem + 2px);*/
+        padding: .375rem .75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        color: #ffffff;
+        background-color: #000;
+        background-clip: padding-box;
+        border: 1px solid #b78515;
+        border-radius: .25rem;
+        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    }
+
+    .Div_Grid {
+        /*left: 34%;*/
+        background: #38230359;
+        border-radius: 2.25rem;
+        height: 558px;
+    }
+
+
+
+    .jsgrid-grid-header::-webkit-scrollbar {
+        display: none;
+    }
+
+    .jsgrid-grid-body::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+    .jsgrid-grid-body {
+        -ms-overflow-style: none; /* IE and Edge */
+        /* scrollbar-width: none;*/ /* Firefox */
+    }
+
+
+
+    .Corse_Is_Active {
+        box-shadow: 0 5px 15px rgb(255 165 0 / 75%);
+        background: #d68f0e !important;
+        border-radius: 2.25rem;
+        /*margin-right: 18px;*/
+        width: 24%;
+    }
+
+        .Corse_Is_Active:hover {
+            box-shadow: 0 5px 15px rgb(255 0 0);
+        }
+
+
+    .Corse_ON_Active {
+        box-shadow: 0 5px 15px rgb(255 255 255 / 75%);
+        background: #ffffff !important;
+        border-radius: 2.25rem;
+        /*margin-right: 18px;*/
+    }
+
+    .Corse_text_Num {
+        margin-top: -17px;
+        margin-bottom: 9px;
+        color: black;
+        font-size: 21px;
+    }
+
+    .div_text_dic {
+        /* margin-left: 7px;
+        width: 97%;
+        background-color: #ffefd5cc;
+        border-radius: 2.25rem;
+        box-shadow: 0 5px 15px rgb(255 0 0);
+        position: relative;
+                color: black;
+        */
+
+        margin-left: 7px;
+        width: 97%;
+        background-color: #00ffa1cc;
+        border-radius: 2.25rem;
+        box-shadow: 0 5px 15px rgb(0 255 55);
+        position: relative;
+        color: black;
+    }
+
+    .text_Mandatory {
+        background-color: #f39c9c !important;
+    }
+
+    body {
+        font-family: arial;
+    }
+
+    .flipswitch {
+        position: relative;
+        background: black;
+        width: 116px;
+        height: 35px;
+        -webkit-appearance: initial;
+        border-radius: 3px;
+        /* -webkit-tap-highlight-color: rgba(0, 0, 0, 0); */
+        outline: none;
+        /* font-size: 14px; */
+        font-family: Trebuchet, Arial, sans-serif;
+        font-weight: bold;
+        cursor: pointer;
+        border: 1px solid #ffa500;
+        /*margin-top: -6%;*/
+        /* top: -37px;
+        left: 177px;*/
+    }
+
+        .flipswitch:after {
+            position: absolute;
+            top: 5%;
+            display: block;
+            line-height: 32px;
+            width: 45%;
+            height: 90%;
+            background: #fff;
+            box-sizing: border-box;
+            text-align: center;
+            transition: all 0.3s ease-in 0s;
+            color: black;
+            border: #888 1px solid;
+            border-radius: 3px;
+        }
+
+        .flipswitch:after {
+            left: 2%;
+            content: "OFF";
+        }
+
+        .flipswitch:checked:after {
+            left: 53%;
+            content: "ON";
+        }
+
+    .over {
+        height: 83%;
+        overflow: auto;
+    }
+
+    .checkbox_Div {
+        border: 2px solid #ffeb00;
+        padding: 10px;
+        border-radius: 25px;
+        background-color: black;
+    }
+
+    .checkbox {
+        height: 30px;
+        margin-top: 5%;
+    }
+
+    .checkbox_label {
+        font-size: 151%;
+        color: #ffeb00;
+        font-weight: bold;
+        text-align: right;
+    }
+</style>
+
+<script src="~/Scripts/jquery-3.5.1.js"></script>
+@*<script src="~/Scripts/jquery-3.1.1.min.js"></script>*@
+<script src="~/ClientApp/Entities.js"></script>
+<script src="~/ClientApp/Shared.js"></script>
+<script src="~/ClientApp/App.js"></script>
+<script src="~/ClientApp/SystemTools.js"></script>
+<script src="~/ClientApp/MessageBox.js"></script>
+<script src="~/ClientApp/JsGrid.js"></script>
+<script src="~/Scripts/jsgrid/jsgrid.js"></script>
+<script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="~/ClientApp/DataTable.js"></script>
+<script src="~/Scripts/DataTables/dataTables.bootstrap.js"></script>
+<link href="~/ClientApp/Open_more_Style.css" rel="stylesheet" />
+ 
+
+
+<!---------------------------------------------------Poup-- Modal content -->
+<div id="Modal_close" class=" col-sm-12 col-md-12 col-lg-12 col-xl-12  modal" style="cursor:pointer">
+
+</div>
+<div id="myModal" class="col-sm-12 col-md-12 col-lg-12 col-xl-12   modal" style="width: 0%;">
+    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 modal-content" style="width: 59%;background-color: #091215;height: 140px;">
+
+
+        <div id="Customer_Detils" class=" col-sm-12 col-md-12 col-lg-12 col-xl-12  container" style=" ">
+
+            <span class="close">×</span>
+            <h3 id="id_title" class=" col-sm-5 col-md-5 col-lg-5 col-xl-5 float-right" style="color: antiquewhite; text-align: left;">راقم العميل</h3>
+            <h2 id="id_Labol" class=" col-sm-5 col-md-5 col-lg-5 col-xl-5 float-left" style="color: white; text-align: center;">المجموعة الأستشارية</h2>
+
+
+
+            <div class=" col-sm-12 col-md-12 col-lg-12 col-xl-12  float-right">
+
+                <button type="button" class="col-sm-4 col-md-4 col-lg-4 col-xl-4 btn btn-primary " id="btnDelete" style="background-color: #b72020;">
+                    <span class="glyphicon glyphicon-remove"></span> مسح
+                </button>
+
+
+
+                <button id="btnEnter" type="button" class="col-sm-4 col-md-4 col-lg-4 col-xl-4 btn btn-success ">
+                    <span class="glyphicon glyphicon-save"></span> جلوس
+                </button>
+
+
+                <button type="button" class=" col-sm-3 col-md-3 col-lg-3 col-xl-3 btn btn-warning " id="btnPrint">
+                    <span class="glyphicon glyphicon-print"></span> طباعه
+                </button>
+
+
+            </div>
+        </div>
+
+        <div id="Add_Customer" style="">
+            <div class="col-lg-12">
+                <label class="col-lg-1" style="margin-left: 167px;top: 28px;"> النوع   </label>
+                <div class="col-lg-2" style="margin-top: -10px;left: 41px;">
+                    <select id="txt_Cust_Type" name="" class="form-control  text_Display" style="text-align: end;">
+                        <option value="Null">  النوع </option>
+                        <option value="0">راجل</option>
+                        <option value="1">طفل</option>
+                    </select>
+                </div>
+
+                <label class="col-lg-1" style="/* margin-left: -47px; */left: 436px;top: -31px;">التليفون</label>
+                <div class="col-lg-3" style="left: 252px;top: -72px;">
+                    <input id="txt_NAssME" name="NAMEA" type="number" class="form-control  text_Display" placeholder="التليفون" style="text-align: end;">
+                </div>
+
+                <label class="col-lg-1" style="/* margin-left: -47px; */left: 788px;top: -102px;">الاسم </label>
+                <div class="col-lg-4" style="left: 526px;top: -143px;">
+                    <input id="txt_NAME" name="NAMEA" type="text" class="form-control  text_Display" placeholder="الاسم  " style="text-align: end;">
+                </div>
+
+                <div class="col-lg-12" style="top: -136px;left: 304px;">
+
+                    <button type="button" class="btn btn-primary" id="btnAdd" style="width: 24%;">
+                        <span class="glyphicon"></span>أضافه
+                    </button>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-------------------------------------------------------------------------------------->
+<!---------------------------------------------------Paper Print-->
+<div class="printer display_none" id="printer" style=" text-align: center;
+  border: 3px solid #000;
+  width: 100%;
+  margin: auto;
+  height: auto;
+  background-color: #FFF;
+  color: #000;
+  padding-top: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;">
+    <div style="border: 1px solid #000;padding: 5px 0px">
+        <div class="imageprinter">
+            <img style="  display: block;
+  margin: auto;
+  position: static!important;
+  width: 105px;
+  height: 83px;" class="printerimg" src="~/img/logo_samah.png">
+
+        </div>
+        <p style="text-align: center;  margin-top: 5px;">الرقم</p>
+        <p id="number" style=" width: 80px;
+  height: 76px;
+  margin: auto;
+  border: 1px solid;
+  border-radius: 50%;
+  line-height: 76px;
+  font-size: 26px;
+  text-align: center;
+  margin-top: 5px;
+  font-weight:bold"></p>
+        <div style="text-align: center;margin-top:5px">
+            <span>الاسم</span>: <span id="name" style="font-weight:bold"></span>
+        </div>
+        <div style="margin-top:10px;text-align: center">
+            <span id="phone" style="font-weight:bold"></span> : <span font-weight:bold>تليفون العميل  </span>
+
+        </div>
+
+        <div class="date" style="
+  margin-top: 12px;
+  text-align: center;
+  display: block;
+">
+            <span id="date" style="font-size: 14px"></span> : <span>التوقيت  </span>
+            <div style="margin-top:5px;">
+                :  <span>للحجز والاستعلام  </span>
+                <span style="display: block;font-weight:bold">01004791916 - 0237201172</span>
+                <span style="margin-right: -26px"> شارع العشرين فيصل</span>
+                <span style="float:right;margin-right: 50px">۲٥</span>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-------------------------------------------------------------------------------------->
+
+
+<section class=" col-sm-12 col-md-12 col-lg-12 col-xl-12 section-gap catalogue-area">
+    <div id="div_Emb" class="col-sm-12 col-md-12 col-lg-12 col-xl-12 tab-area display_none" style="background: #38230359; direction: rtl; text-align: center; ">
+
+        @*<button class="col-sm-2 col-md-2 col-lg-2 col-xl-2 checkbox_Div">
+                <input class="col-sm-2 col-md-2 col-lg-2 col-xl-2 checkbox  " type="checkbox" />
+                <label class="col-sm-8 col-md-8 col-lg-8 col-xl-8 checkbox_label  "> سامح البحيري</label>
+            </button>*@
+
+    </div>
+
+    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+
+        <br />
+
+    </div>
+    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+
+        <div class="col-sm-8 col-md-8 col-lg-8 col-xl-8 float-right Div_Grid">
+
+
+            <div class="col-sm-1 col-md-1 col-lg-1 col-xl-1">
+                <button type="button" class="btn btn-primary" id="btnChange" style="background: transparent;border-color: transparent;margin-bottom: -45px;color: burlywood;">
+                    <span class="glyphicon"> <img class="img-fluid" src="~/img/testimonial/t1.png" alt="" style="border-radius: 4.25rem;box-shadow: 0 5px 15px rgb(255 165 0 / 75%);"></span><span> <<< </span>الذهب الي حجز الاطفال
+                </button>
+
+            </div>
+            <br />
+            @*left: 65%;*@
+
+            <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4" style="left: 40%;margin-bottom: -43px;top: -37px;color: #dfbc00;">
+                <p id="text_type" style="font-weight: bold;font-size: 22px;">النوع ( أطفال )</p>
+            </div>
+
+            @*<div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 " style="   margin-bottom: 5px;">
+
+                </div>*@
+
+            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 over">
+                <input id="searchbutmemreport" name="" type="text" style="   margin-bottom: 5px;" class="col-sm-4 col-md-4 col-lg-4 col-xl-4 float-right search_Text  text_Display" placeholder="بحث : بالرقم أو الاسم ">
+                <table id="ReportGrid" style="direction: rtl; border-radius: 2.25rem; text-align: center;"></table>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                <h4 style="text-align: center; font-weight: bold; color: #ffbc00;">أنقر مرتين لعرض البيان المطلوب</h4>
+            </div>
+
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 " style="position: unset;">
+
+            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 float-left tab-area" style="text-align:center; background: #8b4513bf;">
+                <button type="button" id="ID_Add_E" class=" col-sm-4 col-md-4 col-lg-4 col-xl-4  primary-btn price-btn  " style="  font-weight: bold; font-size: 27px;  ">
+                    <span class="glyphicon glyphicon-print"></span> تحديد الحلاقين
+                </button>
+
+                <input id="Close_Day" type="checkbox" class=" col-sm-3 col-md-3 col-lg-3 col-xl-3 flipswitch" />
+
+
+                <button type="button" id="ID_Add_Custmor" class=" col-sm-4 col-md-4 col-lg-4 col-xl-4  primary-btn price-btn  " style="  font-weight: bold; font-size: 32px;  ">
+                    <span class="glyphicon glyphicon-print"></span> اضافة عميل
+                </button>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" style="position: unset;">
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+            </div>
+
+            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12  tab-area tab-contact-wraper " style="text-align: center;">
+                <h4 class="col-sm-12 col-md-12 col-lg-12 col-xl-12">حدد الكرسي الخاص بالحلاقة </h4>
+
+                <p class="col-sm-12 col-md-12 col-lg-12 col-xl-12" style="font-weight: bold;font-size: 22px;">العميل</p>
+
+                <div class=" col-sm-12 col-md-12 col-lg-12 col-xl-12 jq-tab-menu justify-content-center">
+                    <div id="Corse_1" class=" col-sm-3 col-md-3 col-lg-3 col-xl-3 jq-tab-title Corse_ON_Active" data-tab="1">
+                        <h6 col-sm-12 col-md-12 col-lg-12 col-xl-12 id="text_Num_1" class="Corse_text_Num"></h6>
+                        <img col-sm-12 col-md-12 col-lg-12 col-xl-12 src="~/img/tab/icon4.png" alt="">
+                    </div>
+                    <div id="Corse_2" class="col-sm-3 col-md-3 col-lg-3 col-xl-3 jq-tab-title Corse_ON_Active" data-tab="2">
+                        <h6 col-sm-12 col-md-12 col-lg-12 col-xl-12 id="text_Num_2" class="Corse_text_Num"></h6>
+                        <img col-sm-12 col-md-12 col-lg-12 col-xl-12 src="~/img/tab/icon4.png" alt="">
+                    </div>
+                    <div id="Corse_3" class="col-sm-3 col-md-3 col-lg-3 col-xl-3 jq-tab-title Corse_ON_Active" data-tab="3">
+                        <h6 col-sm-12 col-md-12 col-lg-12 col-xl-12 id="text_Num_3" class="Corse_text_Num"></h6>
+                        <img col-sm-12 col-md-12 col-lg-12 col-xl-12 src="~/img/tab/icon4.png" alt="">
+                    </div>
+                    <div id="Corse_4" class="col-sm-3 col-md-3 col-lg-3 col-xl-3 jq-tab-title Corse_ON_Active" data-tab="4">
+                        <h6 col-sm-12 col-md-12 col-lg-12 col-xl-12 id="text_Num_4" class="Corse_text_Num"></h6>
+                        <img col-sm-12 col-md-12 col-lg-12 col-xl-12 src="~/img/tab/icon4.png" alt="">
+                    </div>
+                </div>
+                <div class=" col-sm-12 col-md-12 col-lg-12 col-xl-12 jq-tab-content-wrapper">
+                    <div id="disc_Corse" class="col-sm-12 col-md-12 col-lg-12 col-xl-12 jq-tab-content active div_text_dic" data-tab="1">
+                        <a id="text_Corse" class="col-sm-12 col-md-12 col-lg-12 col-xl-12" style="font-weight: bold;font-size: 24px;"> </a>
+                        <button type="button" class=" col-sm-12 col-md-12 col-lg-12 col-xl-12 btn btn-primary" data_id="" id="btnExit" style="background-color: #b72020;">
+                            <br />
+                            تم الانتهاء من الحلاقه...
+                            <br />
+                        </button>
+                        <br />
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                    <br />
+                    <br />
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+
+    </div> 
+
+</section>
+<script src="~/ClientApp/open_more.js"></script>
+<script src="~/ClientApp/Home/Home.js"></script>
+
+
+
+ 
