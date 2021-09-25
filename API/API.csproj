@@ -253,6 +253,7 @@
     <Compile Include="Infrastructure\APIResolver.cs" />
     <Compile Include="Infrastructure\IocConfigurator.cs" />
     <Compile Include="Models\BaseResponse.cs" />
+    <Compile Include="Models\CustomModel\Display_App.cs" />
     <Compile Include="Models\ResponseResult.cs" />
     <Compile Include="Models\SessionRecord.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

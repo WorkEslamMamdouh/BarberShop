@@ -82,6 +82,9 @@
     <Compile Include="Domain\select_Table_Tim_work_Result.cs">
       <DependentUpon>SamahModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Domain\SessionStorage.cs">
+      <DependentUpon>SamahModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Domain\Table_Hagz.cs">
       <DependentUpon>SamahModel.tt</DependentUpon>
     </Compile>

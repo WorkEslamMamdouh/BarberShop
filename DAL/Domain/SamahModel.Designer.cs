@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\DAL\Domain\SamahModel.edmx'. 
+﻿// T4 code generation is enabled for model 'F:\ITC\BarberShop\DAL\Domain\SamahModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

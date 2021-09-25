@@ -109,5 +109,20 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <FunctionImportMapping FunctionImportName="closeDay" FunctionName="SamahModel.Store.closeDay" />
+    <EntitySetMapping Name="SessionStorages">
+      <EntityTypeMapping TypeName="SamahModel.SessionStorage">
+        <MappingFragment StoreEntitySet="SessionStorage">
+          <ScalarProperty Name="Id_Cust" ColumnName="Id_Cust" />
+          <ScalarProperty Name="ServiceId" ColumnName="ServiceId" />
+          <ScalarProperty Name="TurnNumber" ColumnName="TurnNumber" />
+          <ScalarProperty Name="page" ColumnName="page" />
+          <ScalarProperty Name="TR_Type" ColumnName="TR_Type" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID_Device" ColumnName="ID_Device" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

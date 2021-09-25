@@ -37,6 +37,7 @@
     <EntitySet Name="Table_Hagz" EntityType="SamahModel.Table_Hagz" />
     <EntitySet Name="Table_LastNum" EntityType="SamahModel.Table_LastNum" />
     <FunctionImport Name="closeDay" />
+    <EntitySet Name="SessionStorages" EntityType="SamahModel.SessionStorage" />
   </EntityContainer>
   <EntityType Name="Table_Server">
     <Key>
@@ -111,5 +112,19 @@
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="LastNum" Type="Int32" />
     <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="SessionStorage">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Device" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TR_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="page" Type="Int32" />
+    <Property Name="TurnNumber" Type="Int32" />
+    <Property Name="ServiceId" Type="Int32" />
+    <Property Name="Id_Cust" Type="Int32" />
   </EntityType>
 </Schema>

@@ -84,3 +84,13 @@ G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\BLL\bin\Debug\EntityFramework.xml
 G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\BLL\obj\Debug\BLL.dll
 G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\BLL\obj\Debug\BLL.pdb
 G:\GitHub\Samah\WebUI 7-2-2021 - Temp\WebUI\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+F:\ITC\BarberShop\BLL\bin\Debug\BLL.dll
+F:\ITC\BarberShop\BLL\bin\Debug\BLL.pdb
+F:\ITC\BarberShop\BLL\bin\Debug\DAL.dll
+F:\ITC\BarberShop\BLL\bin\Debug\EntityFramework.dll
+F:\ITC\BarberShop\BLL\bin\Debug\DAL.pdb
+F:\ITC\BarberShop\BLL\bin\Debug\DAL.dll.config
+F:\ITC\BarberShop\BLL\bin\Debug\EntityFramework.xml
+F:\ITC\BarberShop\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+F:\ITC\BarberShop\BLL\obj\Debug\BLL.dll
+F:\ITC\BarberShop\BLL\obj\Debug\BLL.pdb

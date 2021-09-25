@@ -31,6 +31,7 @@ namespace DAL.Domain
         public virtual DbSet<Table_Server> Table_Server { get; set; }
         public virtual DbSet<Table_Hagz> Table_Hagz { get; set; }
         public virtual DbSet<Table_LastNum> Table_LastNum { get; set; }
+        public virtual DbSet<SessionStorage> SessionStorages { get; set; }
     
         public virtual ObjectResult<insert_Table_Result> insert_Table(string name, string phone, string type, string message, string tR_Type)
         {

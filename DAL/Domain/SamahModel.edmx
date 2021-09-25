@@ -5,6 +5,20 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="SamahModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="SessionStorage">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Device" Type="nvarchar" MaxLength="100" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="TR_Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="page" Type="int" />
+          <Property Name="TurnNumber" Type="int" />
+          <Property Name="ServiceId" Type="int" />
+          <Property Name="Id_Cust" Type="int" />
+        </EntityType>
         <EntityType Name="Table_Hagz">
           <Key>
             <PropertyRef Name="ID" />
@@ -73,6 +87,7 @@
         </Function>
         <Function Name="select_Table_Tim_work" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="SamahModelStoreContainer">
+          <EntitySet Name="SessionStorage" EntityType="Self.SessionStorage" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Table_Hagz" EntityType="Self.Table_Hagz" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Table_LastNum" EntityType="Self.Table_LastNum" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Table_Server" EntityType="Self.Table_Server" Schema="dbo" store:Type="Tables" />
@@ -120,6 +135,7 @@
           <EntitySet Name="Table_Hagz" EntityType="SamahModel.Table_Hagz" />
           <EntitySet Name="Table_LastNum" EntityType="SamahModel.Table_LastNum" />
           <FunctionImport Name="closeDay" />
+          <EntitySet Name="SessionStorages" EntityType="SamahModel.SessionStorage" />
         </EntityContainer>
         <EntityType Name="Table_Server">
           <Key>
@@ -194,6 +210,20 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="LastNum" Type="Int32" />
           <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SessionStorage">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Device" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TR_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="page" Type="Int32" />
+          <Property Name="TurnNumber" Type="Int32" />
+          <Property Name="ServiceId" Type="Int32" />
+          <Property Name="Id_Cust" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -309,6 +339,21 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="closeDay" FunctionName="SamahModel.Store.closeDay" />
+          <EntitySetMapping Name="SessionStorages">
+            <EntityTypeMapping TypeName="SamahModel.SessionStorage">
+              <MappingFragment StoreEntitySet="SessionStorage">
+                <ScalarProperty Name="Id_Cust" ColumnName="Id_Cust" />
+                <ScalarProperty Name="ServiceId" ColumnName="ServiceId" />
+                <ScalarProperty Name="TurnNumber" ColumnName="TurnNumber" />
+                <ScalarProperty Name="page" ColumnName="page" />
+                <ScalarProperty Name="TR_Type" ColumnName="TR_Type" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID_Device" ColumnName="ID_Device" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

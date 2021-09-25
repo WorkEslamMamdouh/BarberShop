@@ -93,20 +93,10 @@ namespace Home {
         debugger;
         InitalizeControls();
         InitalizeEvents();
-        InitializeGrid();
-
-        cheakcloseDay();
-
-
-
-        Display();
-
-        setTime();
-
-
-
-
-
+        InitializeGrid();      
+        cheakcloseDay();   
+        Display();   
+        setTime();     
         Disbly_Emb();
 
     }
@@ -462,11 +452,11 @@ namespace Home {
             alert('لا يمكنك اضافة زبون لانه المحل مغلق يجب فتح المحل اولا')
         }
         else {
-            //ID_Add_Custmor.disabled = true;
-            //insert_Table();
-            show_div();
-            $("#Add_Customer").removeClass("display_none");
-            $("#Customer_Detils").addClass("display_none");
+            ID_Add_Custmor.disabled = true;
+            insert_Table();
+            //show_div();
+            //$("#Add_Customer").removeClass("display_none");
+            //$("#Customer_Detils").addClass("display_none");
         }
 
     }
@@ -482,7 +472,7 @@ namespace Home {
     function Assign_Insert() {
 
         let ph = "010" + (Math.floor(Math.random() * 10000) + 1) + (Math.floor(Math.random() * 10000) + 1)
-        if (txt_NAME.value == "") { Name = "ابراهيم الصغير..." } else { Name = txt_NAME.value; }
+        if (txt_NAME.value == "") { Name = "اسمه أيه..." } else { Name = txt_NAME.value; }
         if (txt_MOBILE.value == "") { Phone = ph } else { Phone = txt_MOBILE.value; }
         TR_Type == '1' ? (Type = "1", Insert_Type = 1) : (Type = "2", Insert_Type = 2)
 

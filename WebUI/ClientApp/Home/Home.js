@@ -320,11 +320,8 @@ var Home;
             alert('لا يمكنك اضافة زبون لانه المحل مغلق يجب فتح المحل اولا');
         }
         else {
-            //ID_Add_Custmor.disabled = true;
-            //insert_Table();
-            show_div();
-            $("#Add_Customer").removeClass("display_none");
-            $("#Customer_Detils").addClass("display_none");
+            ID_Add_Custmor.disabled = true;
+            insert_Table();
         }
     }
     function btnAdd_onclick() {
@@ -338,7 +335,7 @@ var Home;
     function Assign_Insert() {
         var ph = "010" + (Math.floor(Math.random() * 10000) + 1) + (Math.floor(Math.random() * 10000) + 1);
         if (txt_NAME.value == "") {
-            Name = "ابراهيم الصغير...";
+            Name = "اسمه أيه...";
         }
         else {
             Name = txt_NAME.value;
