@@ -15,6 +15,7 @@ namespace DAL.Domain
     public partial class Table_Hagz
     {
         public int ID { get; set; }
+        public Nullable<int> BranchCode { get; set; }
         public Nullable<int> Num { get; set; }
         public string Name { get; set; }
         public string Phone { get; set; }

@@ -10,13 +10,18 @@
 namespace DAL.Domain
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Table_Tim_work
+    public partial class insert_Table_on_App_Result
     {
         public int ID { get; set; }
         public Nullable<int> BranchCode { get; set; }
+        public Nullable<int> Num { get; set; }
         public string Name { get; set; }
-        public Nullable<bool> Cheak { get; set; }
+        public string Phone { get; set; }
+        public string Type { get; set; }
+        public string Message { get; set; }
+        public Nullable<bool> cheak { get; set; }
+        public string StatusFlag { get; set; }
+        public string RegistredTime { get; set; }
     }
 }

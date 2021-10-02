@@ -45,8 +45,7 @@ namespace API.Controllers
             this.HomeService = _HomeService;
 
         }
-
-
+         
         [HttpPost, AllowAnonymous]
         public IHttpActionResult Insert_SessionStorage ([FromBody]SessionStorage Session)
         {
@@ -58,20 +57,19 @@ namespace API.Controllers
 
                 if (Check_ID_Device == 0)
                 {
-                    string qerye = "insert into [dbo].[SessionStorage] values('" + Session.ID_Device + "','" + Session.Name + "','" + Session.Phone + "','" + Session.TR_Type + "'," + Session.page + "," + Session.TurnNumber + "," + Session.ServiceId + "," + Session.Id_Cust + ")";
+                    string qerye = "insert into [dbo].[SessionStorage] values("+ Session.BranchCode+ ",'" + Session.ID_Device + "','" + Session.Name + "','" + Session.Phone + "','" + Session.TR_Type + "'," + Session.page + "," + Session.TurnNumber + "," + Session.ServiceId + "," + Session.Id_Cust + ")";
                     db.Database.ExecuteSqlCommand(qerye);
                 }
                 else
                 { 
-                    db.Database.ExecuteSqlCommand("update [dbo].[SessionStorage] set [Name] ='" + Session.Name + "' , [Phone] = '" + Session.Phone + "', [page] = 2  where ID_Device = '" + Session.ID_Device + "'");
+                    db.Database.ExecuteSqlCommand("update [dbo].[SessionStorage] set BranchCode = "+ Session.BranchCode + ",[Name] ='" + Session.Name + "' , [Phone] = '" + Session.Phone + "', [page] = 2  where ID_Device = '" + Session.ID_Device + "'");
                 }
                  
                 return Ok(new BaseResponse(100));
             }
             return BadRequest(ModelState);
         }
-
-
+         
         [HttpGet, AllowAnonymous]
         public IHttpActionResult Get_Uesr_Session(string ID_Device)
         {
@@ -93,13 +91,32 @@ namespace API.Controllers
             return BadRequest(ModelState);
         }
 
-
-        [HttpGet, AllowAnonymous]
-        public IHttpActionResult GetAll(string TR_Type)
+        [HttpGet, AllowAnonymous] //done
+        public IHttpActionResult GetBranch()
         {
             if (ModelState.IsValid)
             {
-                var nationality = HomeService.GetAll(x => x.Type == TR_Type).ToList();
+                try
+                {
+                    var Branch = db.Database.SqlQuery<G_Branch>("select * from [dbo].[G_Branch]").ToList();
+                    return Ok(new BaseResponse(Branch));
+
+                }
+                catch (Exception ex)
+                {
+                    return Ok(new BaseResponse(HttpStatusCode.ExpectationFailed, ex.Message));
+                }
+            }
+            return BadRequest(ModelState);
+        }
+
+
+        [HttpGet, AllowAnonymous] // done
+        public IHttpActionResult GetAll(string TR_Type , int BranchCode)
+        {
+            if (ModelState.IsValid)
+            {
+                var nationality = HomeService.GetAll(x => x.Type == TR_Type && x.BranchCode == BranchCode).ToList();
                 //GetAll(x => x.ID == ID)
 
                 return Ok(new BaseResponse(nationality));
@@ -108,7 +125,7 @@ namespace API.Controllers
         }
 
         [HttpGet, AllowAnonymous]
-        public IHttpActionResult GetAll_App(string TR_Type, int ID , string ID_Device)
+        public IHttpActionResult GetAll_App(string TR_Type, int ID , string ID_Device , int BranchCode)
         {
             if (ModelState.IsValid)
             {
@@ -116,11 +133,11 @@ namespace API.Controllers
 
                 GetStatus GSta = new GetStatus();
 
-                var Corse = HomeService.GetAll(x => x.Type == TR_Type && x.cheak == true).ToList();
+                var Corse = HomeService.GetAll(x => x.Type == TR_Type && x.cheak == true && x.BranchCode == BranchCode).ToList();
 
                 int TrNo = db.Database.SqlQuery<int>(" select Num from Table_Hagz where ID = " + ID + "").FirstOrDefault();
 
-                int StatusName = db.Database.SqlQuery<int>(" Cheack_Num_Home_App  '" + TR_Type + "' , " + ID + "").FirstOrDefault();
+                int StatusName = db.Database.SqlQuery<int>(" Cheack_Num_Home_App  '" + TR_Type + "' , " + ID + " , "+ BranchCode + "").FirstOrDefault();
 
 
                 Display.Table_Hagz = Corse;
@@ -155,13 +172,13 @@ namespace API.Controllers
         }
 
         [HttpGet, AllowAnonymous]
-        public IHttpActionResult insert_Table_on_App(string Name, string Phone, string Type, string Message, string TR_Type , string ID_Device)
+        public IHttpActionResult insert_Table_on_App(string Name, string Phone, string Type, string Message, string TR_Type , string ID_Device ,int BranchCode)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    var companies = db.Database.SqlQuery<Table_Hagz>("insert_Table_on_App  N'" + Name + "',N'" + Phone + "',N'" + Type + "',N'" + Message + "',N'" + TR_Type + "'").ToList();
+                    var companies = db.Database.SqlQuery<Table_Hagz>("insert_Table_on_App  N'" + Name + "',N'" + Phone + "',N'" + Type + "',N'" + Message + "',N'" + TR_Type + "' , "+ BranchCode + "").ToList();
                     //var companies = db.GFun_Companies(userCode).ToList();
                     db.Database.ExecuteSqlCommand("update [dbo].[SessionStorage] set [page] = 5  , TurnNumber ="+ companies[0].Num + " , Id_Cust="+ companies[0].ID+ ",TR_Type="+ TR_Type + " where ID_Device = '" + ID_Device + "'");
 
@@ -177,14 +194,14 @@ namespace API.Controllers
             return BadRequest(ModelState);
         }
 
-        [HttpGet, AllowAnonymous]
-        public IHttpActionResult PROC_insert_Table(string Name, string Phone, string Type, string Message, string TR_Type)
+        [HttpGet, AllowAnonymous] //done
+        public IHttpActionResult PROC_insert_Table(string Name, string Phone, string Type, string Message, string TR_Type, int BranchCode)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    db.Database.ExecuteSqlCommand("insert_Table  N'" + Name + "',N'" + Phone + "',N'" + Type + "',N'" + Message + "',N'" + TR_Type + "'");
+                    db.Database.ExecuteSqlCommand("insert_Table  N'" + Name + "',N'" + Phone + "',N'" + Type + "',N'" + Message + "',N'" + TR_Type + "' , "+ BranchCode + "");
                     //var companies = db.GFun_Companies(userCode).ToList();
 
                     return Ok(new BaseResponse(100));
@@ -198,8 +215,7 @@ namespace API.Controllers
             }
             return BadRequest(ModelState);
         }
-
-
+         
         [HttpGet, AllowAnonymous]
         public IHttpActionResult UpdateTable_Tim_work(int Cheak, int ID)
         {
@@ -221,16 +237,15 @@ namespace API.Controllers
             }
             return BadRequest(ModelState);
         }
-
-
-        [HttpGet, AllowAnonymous]
-        public IHttpActionResult insert_Table_Tim_work(string Name, int Cheak)
+         
+        [HttpGet, AllowAnonymous] //Done
+        public IHttpActionResult insert_Table_Tim_work(string Name, int Cheak, int BranchCode)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    var companies = db.Database.SqlQuery<insert_tw_Result>("insert_tw '" + Name + "'," + Cheak + "").ToList();
+                    var companies = db.Database.SqlQuery<insert_tw_Result>("insert_tw '" + Name + "'," + Cheak + ","+ BranchCode + "").ToList();
                     //var companies = db.GFun_Companies(userCode).ToList();
 
                     return Ok(new BaseResponse(companies));
@@ -245,14 +260,14 @@ namespace API.Controllers
             return BadRequest(ModelState);
         }
 
-        [HttpGet, AllowAnonymous]
-        public IHttpActionResult GetAllEmb_InApp(int TR_Type ,string ID_Device)
+        [HttpGet, AllowAnonymous] //Done
+        public IHttpActionResult GetAllEmb_InApp(int TR_Type ,string ID_Device , int BranchCode)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    var companies = db.Database.SqlQuery<Table_Tim_work>("select * from [dbo].[Table_Tim_work] ").ToList();
+                    var companies = db.Database.SqlQuery<Table_Tim_work>("select * from [dbo].[Table_Tim_work] where  BranchCode = "+ BranchCode + " ").ToList();
                     //var companies = db.GFun_Companies(userCode).ToList();
 
                     db.Database.ExecuteSqlCommand("update [dbo].[SessionStorage] set [page] = 3 , [TR_Type] = "+ TR_Type + "  where ID_Device = '" + ID_Device + "'");
@@ -270,14 +285,36 @@ namespace API.Controllers
             return BadRequest(ModelState);
         }
 
-        [HttpGet, AllowAnonymous]
-        public IHttpActionResult GetAllTable_Tim_work()
+        [HttpGet, AllowAnonymous] //---done
+        public IHttpActionResult GetAllTable_Tim_work(int BranchCode)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    var companies = db.Database.SqlQuery<Table_Tim_work>("select * from [dbo].[Table_Tim_work] ").ToList();
+                    var companies = db.Database.SqlQuery<Table_Tim_work>("select * from [dbo].[Table_Tim_work] where  BranchCode = "+ BranchCode + "").ToList();
+                    //var companies = db.GFun_Companies(userCode).ToList();
+
+                    return Ok(new BaseResponse(companies));
+
+
+                }
+                catch (Exception ex)
+                {
+                    return Ok(new BaseResponse(HttpStatusCode.ExpectationFailed, ex.Message));
+                }
+            }
+            return BadRequest(ModelState);
+        }
+
+        [HttpGet, AllowAnonymous] //---done
+        public IHttpActionResult select_Table_Tim_work(int BranchCode)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var companies = db.Database.SqlQuery<select_Table_Tim_work_Result>("select_Table_Tim_work "+ BranchCode + "").ToList();
                     //var companies = db.GFun_Companies(userCode).ToList();
 
                     return Ok(new BaseResponse(companies));
@@ -293,35 +330,13 @@ namespace API.Controllers
         }
 
         [HttpGet, AllowAnonymous]
-        public IHttpActionResult select_Table_Tim_work()
+        public IHttpActionResult closeDay(int BranchCode)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    var companies = db.Database.SqlQuery<select_Table_Tim_work_Result>("select_Table_Tim_work ").ToList();
-                    //var companies = db.GFun_Companies(userCode).ToList();
-
-                    return Ok(new BaseResponse(companies));
-
-
-                }
-                catch (Exception ex)
-                {
-                    return Ok(new BaseResponse(HttpStatusCode.ExpectationFailed, ex.Message));
-                }
-            }
-            return BadRequest(ModelState);
-        }
-
-        [HttpGet, AllowAnonymous]
-        public IHttpActionResult closeDay()
-        {
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    db.Database.ExecuteSqlCommand("closeDay");
+                    db.Database.ExecuteSqlCommand("closeDay "+ BranchCode + "");
                     return Ok(new BaseResponse(100));
 
                 }
@@ -331,17 +346,16 @@ namespace API.Controllers
                 }
             }
             return BadRequest(ModelState);
-        }
-
+        } 
 
         [HttpGet, AllowAnonymous]
-        public IHttpActionResult Cheack_Num_Confirm(string TrType , string ID_Device)
+        public IHttpActionResult Cheack_Num_Confirm(string TrType , string ID_Device ,int BranchCode)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    var companies = db.Database.SqlQuery<int>("Cheack_Num_Confirm " + TrType + "").ToList();
+                    var companies = db.Database.SqlQuery<int>("Cheack_Num_Confirm " + TrType + " , "+ BranchCode + "").ToList();
 
                     db.Database.ExecuteSqlCommand("update [dbo].[SessionStorage] set [page] = 4 , TR_Type ="+ TrType + " where ID_Device = '" + ID_Device + "'");
 
@@ -357,14 +371,16 @@ namespace API.Controllers
             return BadRequest(ModelState);
         }
 
-        [HttpGet, AllowAnonymous]
-        public IHttpActionResult cheakcloseDay()
+
+
+        [HttpGet, AllowAnonymous] //done
+        public IHttpActionResult cheakcloseDay(int BranchCode)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    var companies = db.Database.SqlQuery<int>("select LastNum from Table_LastNum where [Type] ='3'").ToList();
+                    var companies = db.Database.SqlQuery<int>("select LastNum from Table_LastNum where [Type] ='3' and BranchCode ="+ BranchCode + "").ToList();
                     return Ok(new BaseResponse(companies));
 
                 }
@@ -376,14 +392,14 @@ namespace API.Controllers
             return BadRequest(ModelState);
         }
 
-        [HttpGet, AllowAnonymous]
-        public IHttpActionResult Delete_Cut(int ID, string ID_Device)
+        [HttpGet, AllowAnonymous] //done
+        public IHttpActionResult Delete_Cut(int ID, string ID_Device , int BranchCode)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    db.Database.ExecuteSqlCommand("Delete_Rows " + ID + "");  
+                    db.Database.ExecuteSqlCommand("Delete_Rows " + ID + " , "+ BranchCode + "");  
                     db.Database.ExecuteSqlCommand("update [dbo].[SessionStorage] set [page] = 2 , [TR_Type] = null ,Id_Cust =null where ID_Device = '" + ID_Device + "'");
                      
                     return Ok(new BaseResponse(100));
@@ -398,14 +414,14 @@ namespace API.Controllers
             return BadRequest(ModelState);
         }
 
-        [HttpGet, AllowAnonymous]
-        public IHttpActionResult PROC_Delete_Rows(int ID)
+        [HttpGet, AllowAnonymous] //done
+        public IHttpActionResult PROC_Delete_Rows(int ID , int BranchCode)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                      db.Database.ExecuteSqlCommand("Delete_Rows " + ID + "");
+                      db.Database.ExecuteSqlCommand("Delete_Rows " + ID + ","+ BranchCode + "");
                      
 
                     return Ok(new BaseResponse(100));
@@ -419,14 +435,15 @@ namespace API.Controllers
             }
             return BadRequest(ModelState);
         }
-        [HttpGet, AllowAnonymous]
-        public IHttpActionResult PROC_Enter_Customer(int ID, string TR_Type)
+
+        [HttpGet, AllowAnonymous]//done
+        public IHttpActionResult PROC_Enter_Customer(int ID, string TR_Type , int BranchCode )
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    var companies = db.Database.SqlQuery<Enter_Customer_Result>("Enter_Customer " + ID + ",'" + TR_Type + "'").ToList();
+                    var companies = db.Database.SqlQuery<Enter_Customer_Result>("Enter_Customer " + ID + ",'" + TR_Type + "' , "+ BranchCode + "").ToList();
 
                     return Ok(new BaseResponse(companies));
 
@@ -439,176 +456,6 @@ namespace API.Controllers
             }
             return BadRequest(ModelState);
         }
-
-        protected IEnumerable<T> Get<T>(string SqlStatement)
-        {
-            //var companiesList = new List<Table_Hagz>();
-            //foreach (var company in companies)
-            //{
-            //    var comp = new Table_Hagz();
-            //    comp.ID = company.ID;
-            //    comp.Num= company.Num;
-            //    comp.Name= SecuritySystem.Decrypt(company.Name);
-            //    comp.Phone= SecuritySystem.Decrypt(company.Phone);
-            //    comp.Type = SecuritySystem.Decrypt(company.Type);
-            //    comp.Message= SecuritySystem.Decrypt(company.Message);
-            //    comp.cheak = Convert.ToBoolean(company.cheak);
-            //    comp.StatusFlag = SecuritySystem.Decrypt(company.StatusFlag);
-            //    companiesList.Add(comp);
-            //};
-            //return Ok(companiesList);
-
-
-
-            //var SqlStatment = "insert_Table  '" + Name + "','" + Phone + "','" + Type + "','" + Message + "'";
-
-            ////string result = this.ExecuteScalar(SqlStatment);
-
-            //var result = this.Get<object>(SqlStatment);
-
-            //return Ok(new BaseResponse(companiesList));   
-            //SqlParameter[] Param = new SqlParameter[] {
-            //       new SqlParameter("@Name",Name),
-            //       new SqlParameter("@Phone",Phone),
-            //       new SqlParameter("@Type",Type),
-            //       new SqlParameter("@Message",Message)
-
-            //};
-            //db.Database.SqlQuery<string>("Select name from sys.tables").ToList();
-            //var data = db.Database.SqlQuery<string>("insert_Table  '"+ Name + "','" + Phone + "','" + Type + "','" + Message + "'").ToList();
-
-            string connectionString = db.Database.Connection.ConnectionString;
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                using (SqlCommand command = new SqlCommand())
-                {
-                    command.Connection = connection;
-                    command.CommandText = SqlStatement;
-                    connection.Open();
-                    Table_Hagz table = new Table_Hagz();
-                    //table.Load(command.ExecuteReader());
-                    connection.Close();
-                    command.Dispose();
-                    connection.Dispose();
-
-                    var result = JsonConvert.DeserializeObject<IEnumerable<T>>(JsonConvert.SerializeObject(table));
-                    return result;
-                }
-            }
-
-        }
-
-        public string ExecuteScalar(string SqlStatement)
-        {
-            string connectionString = db.Database.Connection.ConnectionString;
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                using (SqlCommand command = new SqlCommand())
-                {
-                    command.Connection = connection;
-                    command.CommandText = SqlStatement;
-                    connection.Open();
-
-                    string result = string.Empty;
-
-                    result = command.ExecuteScalar().ToString();
-                    connection.Close();
-                    command.Dispose();
-                    connection.Dispose();
-
-
-                    return result;
-                }
-            }
-
-        }
-
-        [HttpGet, AllowAnonymous]
-        public IHttpActionResult GetById(int id)
-        {
-            if (ModelState.IsValid)
-            {
-                var nationality = HomeService.GetById(id);
-
-                return Ok(new BaseResponse(nationality));
-            }
-            return BadRequest(ModelState);
-        }
-
-
-        [HttpPost, AllowAnonymous]
-        public IHttpActionResult Insert([FromBody]Table_Hagz Nation)
-        {
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    var Nationality = HomeService.Insert(Nation);
-                    return Ok(new BaseResponse(Nationality));
-                }
-                catch (Exception ex)
-                {
-                    return Ok(new BaseResponse(HttpStatusCode.ExpectationFailed, ex.Message));
-                }
-            }
-            return BadRequest(ModelState);
-        }
-        [HttpGet, AllowAnonymous]
-        public IHttpActionResult Delete(int ID)
-        {
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    HomeService.Delete(ID);
-                    return Ok(new BaseResponse());
-                }
-                catch (Exception ex)
-                {
-                    return Ok(new BaseResponse(0, "Error"));
-                }
-
-            }
-            else
-            {
-                return BadRequest(ModelState);
-            }
-        }
-        [HttpPost, AllowAnonymous]
-        public IHttpActionResult Update([FromBody]Table_Hagz Nation)
-        {
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    var Nationality = HomeService.Update(Nation);
-                    return Ok(new BaseResponse(Nationality));
-                }
-                catch (Exception ex)
-                {
-                    return Ok(new BaseResponse(HttpStatusCode.ExpectationFailed, ex.Message));
-                }
-            }
-            return BadRequest(ModelState);
-        }
-
-
-
-        //***************asmaa********************//
-        [HttpPost, AllowAnonymous]
-        public IHttpActionResult UpdateLst(List<Table_Hagz> Table_Hagz)
-        {
-            try
-            {
-                HomeService.UpdateList(Table_Hagz);
-                return Ok(new BaseResponse());
-            }
-            catch (Exception ex)
-            {
-                return Ok(new BaseResponse(HttpStatusCode.ExpectationFailed, ex.Message));
-            }
-        }
-
+         
     }
 }

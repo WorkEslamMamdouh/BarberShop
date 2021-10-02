@@ -27,13 +27,14 @@ namespace DAL.Domain
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Table_Tim_work> Table_Tim_work { get; set; }
-        public virtual DbSet<Table_Server> Table_Server { get; set; }
+        public virtual DbSet<G_Branch> G_Branch { get; set; }
+        public virtual DbSet<SessionStorage> SessionStorages { get; set; }
         public virtual DbSet<Table_Hagz> Table_Hagz { get; set; }
         public virtual DbSet<Table_LastNum> Table_LastNum { get; set; }
-        public virtual DbSet<SessionStorage> SessionStorages { get; set; }
+        public virtual DbSet<Table_Server> Table_Server { get; set; }
+        public virtual DbSet<Table_Tim_work> Table_Tim_work { get; set; }
     
-        public virtual ObjectResult<insert_Table_Result> insert_Table(string name, string phone, string type, string message, string tR_Type)
+        public virtual ObjectResult<insert_Table_Result> insert_Table(string name, string phone, string type, string message, string tR_Type, Nullable<int> branchCode)
         {
             var nameParameter = name != null ?
                 new ObjectParameter("Name", name) :
@@ -55,19 +56,27 @@ namespace DAL.Domain
                 new ObjectParameter("TR_Type", tR_Type) :
                 new ObjectParameter("TR_Type", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<insert_Table_Result>("insert_Table", nameParameter, phoneParameter, typeParameter, messageParameter, tR_TypeParameter);
+            var branchCodeParameter = branchCode.HasValue ?
+                new ObjectParameter("BranchCode", branchCode) :
+                new ObjectParameter("BranchCode", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<insert_Table_Result>("insert_Table", nameParameter, phoneParameter, typeParameter, messageParameter, tR_TypeParameter, branchCodeParameter);
         }
     
-        public virtual ObjectResult<Delete_Rows_Result> Delete_Rows(Nullable<int> iD)
+        public virtual ObjectResult<Delete_Rows_Result> Delete_Rows(Nullable<int> iD, Nullable<int> branchCode)
         {
             var iDParameter = iD.HasValue ?
                 new ObjectParameter("ID", iD) :
                 new ObjectParameter("ID", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Delete_Rows_Result>("Delete_Rows", iDParameter);
+            var branchCodeParameter = branchCode.HasValue ?
+                new ObjectParameter("BranchCode", branchCode) :
+                new ObjectParameter("BranchCode", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Delete_Rows_Result>("Delete_Rows", iDParameter, branchCodeParameter);
         }
     
-        public virtual ObjectResult<Enter_Customer_Result> Enter_Customer(Nullable<int> iD, string tR_Type)
+        public virtual ObjectResult<Enter_Customer_Result> Enter_Customer(Nullable<int> iD, string tR_Type, Nullable<int> branchCode)
         {
             var iDParameter = iD.HasValue ?
                 new ObjectParameter("ID", iD) :
@@ -77,10 +86,14 @@ namespace DAL.Domain
                 new ObjectParameter("TR_Type", tR_Type) :
                 new ObjectParameter("TR_Type", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Enter_Customer_Result>("Enter_Customer", iDParameter, tR_TypeParameter);
+            var branchCodeParameter = branchCode.HasValue ?
+                new ObjectParameter("BranchCode", branchCode) :
+                new ObjectParameter("BranchCode", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Enter_Customer_Result>("Enter_Customer", iDParameter, tR_TypeParameter, branchCodeParameter);
         }
     
-        public virtual int insert_Table_Tim_work(string name, Nullable<bool> cheak)
+        public virtual int insert_Table_Tim_work(string name, Nullable<bool> cheak, Nullable<int> branchCode)
         {
             var nameParameter = name != null ?
                 new ObjectParameter("Name", name) :
@@ -90,10 +103,14 @@ namespace DAL.Domain
                 new ObjectParameter("Cheak", cheak) :
                 new ObjectParameter("Cheak", typeof(bool));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("insert_Table_Tim_work", nameParameter, cheakParameter);
+            var branchCodeParameter = branchCode.HasValue ?
+                new ObjectParameter("BranchCode", branchCode) :
+                new ObjectParameter("BranchCode", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("insert_Table_Tim_work", nameParameter, cheakParameter, branchCodeParameter);
         }
     
-        public virtual ObjectResult<insert_tw_Result> insert_tw(string name, Nullable<bool> cheak)
+        public virtual ObjectResult<insert_tw_Result> insert_tw(string name, Nullable<bool> cheak, Nullable<int> branchCode)
         {
             var nameParameter = name != null ?
                 new ObjectParameter("name", name) :
@@ -103,17 +120,88 @@ namespace DAL.Domain
                 new ObjectParameter("cheak", cheak) :
                 new ObjectParameter("cheak", typeof(bool));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<insert_tw_Result>("insert_tw", nameParameter, cheakParameter);
+            var branchCodeParameter = branchCode.HasValue ?
+                new ObjectParameter("BranchCode", branchCode) :
+                new ObjectParameter("BranchCode", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<insert_tw_Result>("insert_tw", nameParameter, cheakParameter, branchCodeParameter);
         }
     
-        public virtual ObjectResult<select_Table_Tim_work_Result> select_Table_Tim_work()
+        public virtual ObjectResult<select_Table_Tim_work_Result> select_Table_Tim_work(Nullable<int> branchCode)
         {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<select_Table_Tim_work_Result>("select_Table_Tim_work");
+            var branchCodeParameter = branchCode.HasValue ?
+                new ObjectParameter("BranchCode", branchCode) :
+                new ObjectParameter("BranchCode", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<select_Table_Tim_work_Result>("select_Table_Tim_work", branchCodeParameter);
         }
     
-        public virtual int closeDay()
+        public virtual int closeDay(Nullable<int> branchCode)
         {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("closeDay");
+            var branchCodeParameter = branchCode.HasValue ?
+                new ObjectParameter("BranchCode", branchCode) :
+                new ObjectParameter("BranchCode", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("closeDay", branchCodeParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<int>> Cheack_Num_Confirm(string trType, Nullable<int> branchCode)
+        {
+            var trTypeParameter = trType != null ?
+                new ObjectParameter("TrType", trType) :
+                new ObjectParameter("TrType", typeof(string));
+    
+            var branchCodeParameter = branchCode.HasValue ?
+                new ObjectParameter("BranchCode", branchCode) :
+                new ObjectParameter("BranchCode", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("Cheack_Num_Confirm", trTypeParameter, branchCodeParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<int>> Cheack_Num_Home_App(string trType, Nullable<int> iD, Nullable<int> branchCode)
+        {
+            var trTypeParameter = trType != null ?
+                new ObjectParameter("TrType", trType) :
+                new ObjectParameter("TrType", typeof(string));
+    
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var branchCodeParameter = branchCode.HasValue ?
+                new ObjectParameter("BranchCode", branchCode) :
+                new ObjectParameter("BranchCode", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("Cheack_Num_Home_App", trTypeParameter, iDParameter, branchCodeParameter);
+        }
+    
+        public virtual ObjectResult<insert_Table_on_App_Result> insert_Table_on_App(string name, string phone, string type, string message, string tR_Type, Nullable<int> branchCode)
+        {
+            var nameParameter = name != null ?
+                new ObjectParameter("Name", name) :
+                new ObjectParameter("Name", typeof(string));
+    
+            var phoneParameter = phone != null ?
+                new ObjectParameter("Phone", phone) :
+                new ObjectParameter("Phone", typeof(string));
+    
+            var typeParameter = type != null ?
+                new ObjectParameter("Type", type) :
+                new ObjectParameter("Type", typeof(string));
+    
+            var messageParameter = message != null ?
+                new ObjectParameter("Message", message) :
+                new ObjectParameter("Message", typeof(string));
+    
+            var tR_TypeParameter = tR_Type != null ?
+                new ObjectParameter("TR_Type", tR_Type) :
+                new ObjectParameter("TR_Type", typeof(string));
+    
+            var branchCodeParameter = branchCode.HasValue ?
+                new ObjectParameter("BranchCode", branchCode) :
+                new ObjectParameter("BranchCode", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<insert_Table_on_App_Result>("insert_Table_on_App", nameParameter, phoneParameter, typeParameter, messageParameter, tR_TypeParameter, branchCodeParameter);
         }
     }
 }

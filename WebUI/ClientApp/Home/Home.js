@@ -13,6 +13,7 @@ var Home;
     var Details = new Array();
     var New_Details = new Array();
     var BilldIData = new Array();
+    var Branch = new Array();
     var ReportGrid = new JsGrid();
     var Model = new Table_Hagz();
     var User = new Userclose();
@@ -20,6 +21,7 @@ var Home;
     var User_Add = new UserAdd();
     var sys = new SystemTools();
     var txt_Cust_Type;
+    var txt_Branch;
     var btnback;
     var btnDelete;
     var btnPrint;
@@ -65,11 +67,13 @@ var Home;
     var ID_One_Cust;
     var Div_Num = 0;
     var flag_chack_Enter = true;
+    var BranchCode = 1;
     function InitalizeComponent() {
         debugger;
         InitalizeControls();
         InitalizeEvents();
         InitializeGrid();
+        Get_Branch();
         cheakcloseDay();
         Display();
         setTime();
@@ -96,6 +100,7 @@ var Home;
         txt_NAME = document.getElementById("txt_NAME");
         txt_MOBILE = document.getElementById("txt_NAssME");
         txt_Cust_Type = document.getElementById("txt_Cust_Type");
+        txt_Branch = document.getElementById("txt_Branch");
         searchbutmemreport = document.getElementById("searchbutmemreport");
         ////textBoxes
     }
@@ -112,6 +117,7 @@ var Home;
         ID_Add_Custmor.onclick = ID_Add_Custmor_onClick;
         ID_Add_E.onclick = ID_Add_E_onClick;
         Close_Day.onchange = Close_Day_onClick;
+        txt_Branch.onchange = txt_Branch_onchange;
         //btnback.onclick = btnback_onclick;
         //btnEdit.onclick = btnEdit_onclick;
         searchbutmemreport.onkeyup = _SearchBox_Change;
@@ -168,12 +174,36 @@ var Home;
             ReportGrid.Bind();
         }
     }
+    function Get_Branch() {
+        Ajax.Callsync({
+            type: "Get",
+            url: sys.apiUrl("Home", "GetBranch"),
+            success: function (d) {
+                var result = d;
+                if (result.IsSuccess) {
+                    Branch = result.Response;
+                    txt_Branch.innerHTML = "";
+                    for (var i = 0; i < Branch.length; i++) {
+                        $('#txt_Branch').append('<option  value="' + Branch[i].BranchCode + '">' + Branch[i].NameA + '</option>');
+                    }
+                    BranchCode = Number(txt_Branch.value);
+                }
+            }
+        });
+    }
+    function txt_Branch_onchange() {
+        BranchCode = Number(txt_Branch.value);
+        cheakcloseDay();
+        Display();
+        Disbly_Emb();
+    }
     //----------------------------------------------------------------------- 
     //----------------------------------------------Display-------------------
     function cheakcloseDay() {
         Ajax.Callsync({
             type: "Get",
             url: sys.apiUrl("Home", "cheakcloseDay"),
+            data: { BranchCode: BranchCode },
             success: function (d) {
                 var result = d;
                 if (result.IsSuccess) {
@@ -201,7 +231,7 @@ var Home;
         Ajax.Callsync({
             type: "Get",
             url: sys.apiUrl("Home", "GetAll"),
-            data: { TR_Type: TR_Type },
+            data: { TR_Type: TR_Type, BranchCode: BranchCode },
             success: function (d) {
                 debugger;
                 var result = d;
@@ -272,6 +302,7 @@ var Home;
         Ajax.Callsync({
             type: "Get",
             url: sys.apiUrl("Home", "GetAllTable_Tim_work"),
+            data: { BranchCode: BranchCode },
             success: function (d) {
                 debugger;
                 var result = d;
@@ -370,7 +401,7 @@ var Home;
             Ajax.CallAsync({
                 type: "Get",
                 url: sys.apiUrl("Home", "PROC_insert_Table"),
-                data: { Name: Name, Phone: Phone, Type: Type, Message: Message, TR_Type: Insert_Type },
+                data: { Name: Name, Phone: Phone, Type: Type, Message: Message, TR_Type: Insert_Type, BranchCode: BranchCode },
                 success: function (d) {
                     $('#ID_Add_Custmor').removeClass('display_none');
                     Display();
@@ -451,7 +482,7 @@ var Home;
             Ajax.Callsync({
                 type: "Get",
                 url: sys.apiUrl("Home", "PROC_Delete_Rows"),
-                data: { ID: id },
+                data: { ID: id, BranchCode: BranchCode },
                 success: function (d) {
                     Display();
                 }
@@ -472,7 +503,7 @@ var Home;
             Ajax.Callsync({
                 type: "Get",
                 url: sys.apiUrl("Home", "PROC_Delete_Rows"),
-                data: { ID: Id },
+                data: { ID: Id, BranchCode: BranchCode },
                 success: function (d) {
                     Display();
                 }
@@ -543,7 +574,7 @@ var Home;
         Ajax.Callsync({
             type: "Get",
             url: sys.apiUrl("Home", "PROC_Enter_Customer"),
-            data: { ID: New_ID, TR_Type: TR_Type },
+            data: { ID: New_ID, TR_Type: TR_Type, BranchCode: BranchCode },
             success: function (d) {
                 Display();
             }
@@ -591,6 +622,7 @@ var Home;
             Ajax.Callsync({
                 type: "Get",
                 url: sys.apiUrl("Home", "closeDay"),
+                data: { BranchCode: BranchCode },
                 success: function (d) {
                     if (ok == 0) {
                         close = 0;

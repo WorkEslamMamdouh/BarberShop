@@ -15,6 +15,7 @@ namespace DAL.Domain
     public partial class SessionStorage
     {
         public int ID { get; set; }
+        public Nullable<int> BranchCode { get; set; }
         public string ID_Device { get; set; }
         public string Name { get; set; }
         public string Phone { get; set; }

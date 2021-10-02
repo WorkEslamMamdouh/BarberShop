@@ -1,57 +1,63 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="SamahModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityType Name="Table_Tim_work">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Cheak" Type="Boolean" />
-  </EntityType>
   <EntityContainer Name="SamahEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Table_Tim_work" EntityType="Self.Table_Tim_work" />
-    <EntitySet Name="Table_Server" EntityType="SamahModel.Table_Server" />
     <FunctionImport Name="insert_Table" ReturnType="Collection(SamahModel.insert_Table_Result)">
       <Parameter Name="Name" Mode="In" Type="String" />
       <Parameter Name="Phone" Mode="In" Type="String" />
       <Parameter Name="Type" Mode="In" Type="String" />
       <Parameter Name="Message" Mode="In" Type="String" />
       <Parameter Name="TR_Type" Mode="In" Type="String" />
+      <Parameter Name="BranchCode" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="Delete_Rows" ReturnType="Collection(SamahModel.Delete_Rows_Result)">
       <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="BranchCode" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="Enter_Customer" ReturnType="Collection(SamahModel.Enter_Customer_Result)">
       <Parameter Name="ID" Mode="In" Type="Int32" />
       <Parameter Name="TR_Type" Mode="In" Type="String" />
+      <Parameter Name="BranchCode" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="insert_Table_Tim_work">
       <Parameter Name="Name" Mode="In" Type="String" />
       <Parameter Name="Cheak" Mode="In" Type="Boolean" />
+      <Parameter Name="BranchCode" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="insert_tw" ReturnType="Collection(SamahModel.insert_tw_Result)">
       <Parameter Name="name" Mode="In" Type="String" />
       <Parameter Name="cheak" Mode="In" Type="Boolean" />
+      <Parameter Name="BranchCode" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="select_Table_Tim_work" ReturnType="Collection(SamahModel.select_Table_Tim_work_Result)" />
+    <FunctionImport Name="select_Table_Tim_work" ReturnType="Collection(SamahModel.select_Table_Tim_work_Result)">
+      <Parameter Name="BranchCode" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="closeDay">
+      <Parameter Name="BranchCode" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="G_Branch" EntityType="SamahModel.G_Branch" />
+    <EntitySet Name="SessionStorages" EntityType="SamahModel.SessionStorage" />
     <EntitySet Name="Table_Hagz" EntityType="SamahModel.Table_Hagz" />
     <EntitySet Name="Table_LastNum" EntityType="SamahModel.Table_LastNum" />
-    <FunctionImport Name="closeDay" />
-    <EntitySet Name="SessionStorages" EntityType="SamahModel.SessionStorage" />
+    <EntitySet Name="Table_Server" EntityType="SamahModel.Table_Server" />
+    <EntitySet Name="Table_Tim_work" EntityType="SamahModel.Table_Tim_work" />
+    <FunctionImport Name="Cheack_Num_Confirm" ReturnType="Collection(Int32)">
+      <Parameter Name="TrType" Mode="In" Type="String" />
+      <Parameter Name="BranchCode" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Cheack_Num_Home_App" ReturnType="Collection(Int32)">
+      <Parameter Name="TrType" Mode="In" Type="String" />
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="BranchCode" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="insert_Table_on_App" ReturnType="Collection(SamahModel.insert_Table_on_App_Result)">
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="Phone" Mode="In" Type="String" />
+      <Parameter Name="Type" Mode="In" Type="String" />
+      <Parameter Name="Message" Mode="In" Type="String" />
+      <Parameter Name="TR_Type" Mode="In" Type="String" />
+      <Parameter Name="BranchCode" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
-  <EntityType Name="Table_Server">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Num" Type="Int32" />
-    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Message" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="cheak" Type="Boolean" />
-    <Property Name="StatusFlag" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-  </EntityType>
   <ComplexType Name="insert_Table_Result">
     <Property Type="Int32" Name="ID" Nullable="false" />
     <Property Type="Int32" Name="Num" Nullable="true" />
@@ -91,11 +97,35 @@
     <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
     <Property Type="Boolean" Name="Cheak" Nullable="true" />
   </ComplexType>
+  <EntityType Name="G_Branch">
+    <Key>
+      <PropertyRef Name="BranchCode" />
+    </Key>
+    <Property Name="BranchCode" Type="Int32" Nullable="false" />
+    <Property Name="NameA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NameE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="SessionStorage">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BranchCode" Type="Int32" />
+    <Property Name="ID_Device" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TR_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="page" Type="Int32" />
+    <Property Name="TurnNumber" Type="Int32" />
+    <Property Name="ServiceId" Type="Int32" />
+    <Property Name="Id_Cust" Type="Int32" />
+  </EntityType>
   <EntityType Name="Table_Hagz">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BranchCode" Type="Int32" />
     <Property Name="Num" Type="Int32" />
     <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -110,21 +140,42 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BranchCode" Type="Int32" />
     <Property Name="LastNum" Type="Int32" />
     <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
-  <EntityType Name="SessionStorage">
+  <EntityType Name="Table_Server">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="ID_Device" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Num" Type="Int32" />
     <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="TR_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="page" Type="Int32" />
-    <Property Name="TurnNumber" Type="Int32" />
-    <Property Name="ServiceId" Type="Int32" />
-    <Property Name="Id_Cust" Type="Int32" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Message" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="cheak" Type="Boolean" />
+    <Property Name="StatusFlag" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
+  <EntityType Name="Table_Tim_work">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BranchCode" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Cheak" Type="Boolean" />
+  </EntityType>
+  <ComplexType Name="insert_Table_on_App_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="Int32" Name="BranchCode" Nullable="true" />
+    <Property Type="Int32" Name="Num" Nullable="true" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Phone" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Type" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Message" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="cheak" Nullable="true" />
+    <Property Type="String" Name="StatusFlag" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="RegistredTime" Nullable="true" MaxLength="50" />
+  </ComplexType>
 </Schema>

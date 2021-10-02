@@ -56,6 +56,12 @@
     <Compile Include="Domain\Enter_Customer_Result.cs">
       <DependentUpon>SamahModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Domain\G_Branch.cs">
+      <DependentUpon>SamahModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\insert_Table_on_App_Result.cs">
+      <DependentUpon>SamahModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Domain\insert_Table_Result.cs">
       <DependentUpon>SamahModel.tt</DependentUpon>
     </Compile>

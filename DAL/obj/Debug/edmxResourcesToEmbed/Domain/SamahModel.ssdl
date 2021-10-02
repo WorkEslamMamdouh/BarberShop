@@ -1,10 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="SamahModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="G_Branch">
+    <Key>
+      <PropertyRef Name="BranchCode" />
+    </Key>
+    <Property Name="BranchCode" Type="int" Nullable="false" />
+    <Property Name="NameA" Type="nvarchar" MaxLength="50" />
+    <Property Name="NameE" Type="nvarchar" MaxLength="50" />
+  </EntityType>
   <EntityType Name="SessionStorage">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BranchCode" Type="int" />
     <Property Name="ID_Device" Type="nvarchar" MaxLength="100" />
     <Property Name="Name" Type="nvarchar" MaxLength="50" />
     <Property Name="Phone" Type="nvarchar" MaxLength="50" />
@@ -19,6 +28,7 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BranchCode" Type="int" />
     <Property Name="Num" Type="int" />
     <Property Name="Name" Type="nvarchar" MaxLength="50" />
     <Property Name="Phone" Type="nvarchar" MaxLength="50" />
@@ -33,6 +43,7 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BranchCode" Type="int" />
     <Property Name="LastNum" Type="int" />
     <Property Name="Type" Type="nvarchar" MaxLength="50" />
   </EntityType>
@@ -54,16 +65,30 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BranchCode" Type="int" />
     <Property Name="Name" Type="nvarchar" MaxLength="50" />
     <Property Name="Cheak" Type="bit" />
   </EntityType>
-  <Function Name="closeDay" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Cheack_Num_Confirm" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TrType" Type="nvarchar" Mode="In" />
+    <Parameter Name="BranchCode" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Cheack_Num_Home_App" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TrType" Type="nvarchar" Mode="In" />
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="BranchCode" Type="int" Mode="In" />
+  </Function>
+  <Function Name="closeDay" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="BranchCode" Type="int" Mode="In" />
+  </Function>
   <Function Name="Delete_Rows" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="BranchCode" Type="int" Mode="In" />
   </Function>
   <Function Name="Enter_Customer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ID" Type="int" Mode="In" />
     <Parameter Name="TR_Type" Type="nvarchar" Mode="In" />
+    <Parameter Name="BranchCode" Type="int" Mode="In" />
   </Function>
   <Function Name="insert_Table" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="Name" Type="nvarchar" Mode="In" />
@@ -71,17 +96,31 @@
     <Parameter Name="Type" Type="nvarchar" Mode="In" />
     <Parameter Name="Message" Type="nvarchar" Mode="In" />
     <Parameter Name="TR_Type" Type="nvarchar" Mode="In" />
+    <Parameter Name="BranchCode" Type="int" Mode="In" />
+  </Function>
+  <Function Name="insert_Table_on_App" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Phone" Type="nvarchar" Mode="In" />
+    <Parameter Name="Type" Type="nvarchar" Mode="In" />
+    <Parameter Name="Message" Type="nvarchar" Mode="In" />
+    <Parameter Name="TR_Type" Type="nvarchar" Mode="In" />
+    <Parameter Name="BranchCode" Type="int" Mode="In" />
   </Function>
   <Function Name="insert_Table_Tim_work" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="Name" Type="nvarchar" Mode="In" />
     <Parameter Name="Cheak" Type="bit" Mode="In" />
+    <Parameter Name="BranchCode" Type="int" Mode="In" />
   </Function>
   <Function Name="insert_tw" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="name" Type="nvarchar" Mode="In" />
     <Parameter Name="cheak" Type="bit" Mode="In" />
+    <Parameter Name="BranchCode" Type="int" Mode="In" />
   </Function>
-  <Function Name="select_Table_Tim_work" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="select_Table_Tim_work" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="BranchCode" Type="int" Mode="In" />
+  </Function>
   <EntityContainer Name="SamahModelStoreContainer">
+    <EntitySet Name="G_Branch" EntityType="Self.G_Branch" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SessionStorage" EntityType="Self.SessionStorage" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Table_Hagz" EntityType="Self.Table_Hagz" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Table_LastNum" EntityType="Self.Table_LastNum" Schema="dbo" store:Type="Tables" />

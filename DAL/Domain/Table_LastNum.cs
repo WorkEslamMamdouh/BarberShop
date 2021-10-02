@@ -15,6 +15,7 @@ namespace DAL.Domain
     public partial class Table_LastNum
     {
         public int ID { get; set; }
+        public Nullable<int> BranchCode { get; set; }
         public Nullable<int> LastNum { get; set; }
         public string Type { get; set; }
     }

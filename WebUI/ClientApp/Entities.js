@@ -154,43 +154,6 @@ var ReportParameters = (function () {
     }
     return ReportParameters;
 }());
-var G_BRANCH = (function (_super) {
-    __extends(G_BRANCH, _super);
-    function G_BRANCH() {
-        var _this = _super.call(this) || this;
-        _this.COMP_CODE = 0;
-        _this.BRA_CODE = 0;
-        _this.BRA_DESC = "";
-        _this.BRA_TYPE = 0;
-        _this.BRA_DESCL = "";
-        _this.BRA_SHORTA = "";
-        _this.BRA_SHORTL = "";
-        _this.REGION_CODE = "";
-        _this.City = "";
-        _this.Address = "";
-        _this.Tel = "";
-        _this.Fax = "";
-        _this.Email = "";
-        _this.WebSite = "";
-        _this.BranchManager = "";
-        _this.HRResponsible = "";
-        _this.FinanceResponsible = "";
-        _this.SalesManager = "";
-        _this.CUSTOM1 = "";
-        _this.CUSTOM2 = "";
-        _this.CUSTOM3 = "";
-        _this.CUSTOM4 = "";
-        _this.CUSTOM5 = "";
-        _this.CUSTOMFLAG1 = false;
-        _this.CUSTOMFLAG2 = false;
-        _this.CUSTOMNUM1 = 0;
-        _this.CUSTOMNUM2 = 0;
-        _this.CUSTOMDATE = "";
-        _this.BRA_DESCE = "";
-        return _this;
-    }
-    return G_BRANCH;
-}(SecurityClass));
 var I_VW_GetCompStatus = (function (_super) {
     __extends(I_VW_GetCompStatus, _super);
     function I_VW_GetCompStatus() {
@@ -283,6 +246,7 @@ var Table_Hagz = (function (_super) {
     function Table_Hagz() {
         var _this = _super.call(this) || this;
         _this.ID = 0;
+        _this.BranchCode = 0;
         _this.Num = 0;
         _this.Name = "";
         _this.Phone = "";
@@ -354,12 +318,24 @@ var Table_Tim_work = (function (_super) {
     function Table_Tim_work() {
         var _this = _super.call(this) || this;
         _this.ID = 0;
+        _this.BranchCode = 0;
         _this.Name = "";
         _this.Cheak = false;
         _this.StatusFlag = "";
         return _this;
     }
     return Table_Tim_work;
+}(SecurityClass));
+var G_Branch = (function (_super) {
+    __extends(G_Branch, _super);
+    function G_Branch() {
+        var _this = _super.call(this) || this;
+        _this.BranchCode = 0;
+        _this.NameA = "";
+        _this.NameE = "";
+        return _this;
+    }
+    return G_Branch;
 }(SecurityClass));
 var G_SearchForm = (function (_super) {
     __extends(G_SearchForm, _super);

@@ -17,6 +17,7 @@ namespace Home {
     var New_Details: Array<Table_Hagz> = new Array<Table_Hagz>();
 
     var BilldIData: Array<Table_Hagz> = new Array<Table_Hagz>();
+    var Branch: Array<G_Branch> = new Array<G_Branch>();     
     var ReportGrid: JsGrid = new JsGrid();
     var Model: Table_Hagz = new Table_Hagz();
     var User: Userclose = new Userclose();
@@ -26,6 +27,10 @@ namespace Home {
     var sys: SystemTools = new SystemTools();
 
     var txt_Cust_Type: HTMLSelectElement;
+    var txt_Branch: HTMLSelectElement;
+
+
+    
 
     var btnback: HTMLButtonElement;
     var btnDelete: HTMLButtonElement;
@@ -88,15 +93,17 @@ namespace Home {
     var ID_One_Cust;
     var Div_Num = 0;
     var flag_chack_Enter: boolean = true;
+    var BranchCode = 1;
     export function InitalizeComponent() {
 
         debugger;
         InitalizeControls();
         InitalizeEvents();
-        InitializeGrid();      
-        cheakcloseDay();   
-        Display();   
-        setTime();     
+        InitializeGrid();
+        Get_Branch();
+        cheakcloseDay();
+        Display();
+        setTime();
         Disbly_Emb();
 
     }
@@ -127,6 +134,9 @@ namespace Home {
         txt_NAME = document.getElementById("txt_NAME") as HTMLInputElement;
         txt_MOBILE = document.getElementById("txt_NAssME") as HTMLInputElement;
         txt_Cust_Type = document.getElementById("txt_Cust_Type") as HTMLSelectElement;
+        txt_Branch = document.getElementById("txt_Branch") as HTMLSelectElement;
+
+        
         searchbutmemreport = document.getElementById("searchbutmemreport") as HTMLInputElement;
 
         ////textBoxes
@@ -147,6 +157,7 @@ namespace Home {
         ID_Add_Custmor.onclick = ID_Add_Custmor_onClick;
         ID_Add_E.onclick = ID_Add_E_onClick;
         Close_Day.onchange = Close_Day_onClick;
+        txt_Branch.onchange = txt_Branch_onchange;
         //btnback.onclick = btnback_onclick;
         //btnEdit.onclick = btnEdit_onclick;
         searchbutmemreport.onkeyup = _SearchBox_Change;
@@ -217,6 +228,39 @@ namespace Home {
             ReportGrid.Bind();
         }
     }
+
+    function Get_Branch() {
+
+        Ajax.Callsync({
+            type: "Get",
+            url: sys.apiUrl("Home", "GetBranch"),   
+            success: (d) => {
+                let result = d as BaseResponse;
+                if (result.IsSuccess) {    
+                    Branch = result.Response as Array<G_Branch>;
+                    txt_Branch.innerHTML = "";
+                    for (var i = 0; i < Branch.length; i++) {    
+                        $('#txt_Branch').append('<option  value="' + Branch[i].BranchCode + '">' + Branch[i].NameA + '</option>');    
+                    }                                                       
+
+
+                    BranchCode = Number(txt_Branch.value);
+                                         
+                }
+
+            }
+        });
+
+    }
+    function txt_Branch_onchange() {
+
+        BranchCode = Number(txt_Branch.value);
+
+        cheakcloseDay();
+        Display();  
+        Disbly_Emb();
+
+    }
     //----------------------------------------------------------------------- 
 
     //----------------------------------------------Display-------------------
@@ -225,6 +269,7 @@ namespace Home {
         Ajax.Callsync({
             type: "Get",
             url: sys.apiUrl("Home", "cheakcloseDay"),
+            data: { BranchCode: BranchCode },
             success: (d) => {
                 let result = d as BaseResponse;
                 if (result.IsSuccess) {
@@ -259,7 +304,7 @@ namespace Home {
         Ajax.Callsync({
             type: "Get",
             url: sys.apiUrl("Home", "GetAll"),
-            data: { TR_Type: TR_Type },
+            data: { TR_Type: TR_Type, BranchCode: BranchCode },
             success: (d) => {
                 debugger;
                 let result = d as BaseResponse;
@@ -374,6 +419,7 @@ namespace Home {
         Ajax.Callsync({
             type: "Get",
             url: sys.apiUrl("Home", "GetAllTable_Tim_work"),
+            data: { BranchCode: BranchCode },
             success: (d) => {
                 debugger;
                 let result = d as BaseResponse;
@@ -507,7 +553,7 @@ namespace Home {
             Ajax.CallAsync({
                 type: "Get",
                 url: sys.apiUrl("Home", "PROC_insert_Table"),
-                data: { Name: Name, Phone: Phone, Type: Type, Message: Message, TR_Type: Insert_Type },
+                data: { Name: Name, Phone: Phone, Type: Type, Message: Message, TR_Type: Insert_Type, BranchCode: BranchCode },
                 success: (d) => {
 
                     $('#ID_Add_Custmor').removeClass('display_none');
@@ -619,7 +665,7 @@ namespace Home {
             Ajax.Callsync({
                 type: "Get",
                 url: sys.apiUrl("Home", "PROC_Delete_Rows"),
-                data: { ID: id },
+                data: { ID: id, BranchCode: BranchCode },
                 success: (d) => {
                     Display();
 
@@ -651,7 +697,7 @@ namespace Home {
             Ajax.Callsync({
                 type: "Get",
                 url: sys.apiUrl("Home", "PROC_Delete_Rows"),
-                data: { ID: Id },
+                data: { ID: Id, BranchCode: BranchCode },
                 success: (d) => {
 
                     Display();
@@ -755,7 +801,7 @@ namespace Home {
         Ajax.Callsync({
             type: "Get",
             url: sys.apiUrl("Home", "PROC_Enter_Customer"),
-            data: { ID: New_ID, TR_Type: TR_Type },
+            data: { ID: New_ID, TR_Type: TR_Type, BranchCode: BranchCode},
             success: (d) => {
 
                 Display();
@@ -815,6 +861,7 @@ namespace Home {
             Ajax.Callsync({
                 type: "Get",
                 url: sys.apiUrl("Home", "closeDay"),
+                data: { BranchCode: BranchCode },
                 success: (d) => {
 
                     if (ok == 0) {

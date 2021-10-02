@@ -185,71 +185,7 @@ class ReportParameters {
     public User_Code: string;
        
 }
-
-class G_BRANCH extends SecurityClass {
-    constructor() {
-        super();
-        this.COMP_CODE = 0;
-        this.BRA_CODE = 0;
-        this.BRA_DESC = "";
-        this.BRA_TYPE = 0;
-        this.BRA_DESCL = "";
-        this.BRA_SHORTA = "";
-        this.BRA_SHORTL = "";
-        this.REGION_CODE = "";
-        this.City = "";
-        this.Address = "";
-        this.Tel = "";
-        this.Fax = "";
-        this.Email = "";
-        this.WebSite = "";
-        this.BranchManager = "";
-        this.HRResponsible = "";
-        this.FinanceResponsible = "";
-        this.SalesManager = "";
-        this.CUSTOM1 = "";
-        this.CUSTOM2 = "";
-        this.CUSTOM3 = "";
-        this.CUSTOM4 = "";
-        this.CUSTOM5 = "";
-        this.CUSTOMFLAG1 = false;
-        this.CUSTOMFLAG2 = false;
-        this.CUSTOMNUM1 = 0;
-        this.CUSTOMNUM2 = 0;
-        this.CUSTOMDATE = "";
-        this.BRA_DESCE = "";
-    }
-    public COMP_CODE: number;
-    public BRA_CODE: number;
-    public BRA_DESC: string;
-    public BRA_TYPE: number;
-    public BRA_DESCL: string;
-    public BRA_SHORTA: string;
-    public BRA_SHORTL: string;
-    public REGION_CODE: string;
-    public City: string;
-    public Address: string;
-    public Tel: string;
-    public Fax: string;
-    public Email: string;
-    public WebSite: string;
-    public BranchManager: string;
-    public HRResponsible: string;
-    public FinanceResponsible: string;
-    public SalesManager: string;
-    public CUSTOM1: string;
-    public CUSTOM2: string;
-    public CUSTOM3: string;
-    public CUSTOM4: string;
-    public CUSTOM5: string;
-    public CUSTOMFLAG1: boolean;
-    public CUSTOMFLAG2: boolean;
-    public CUSTOMNUM1: number;
-    public CUSTOMNUM2: number;
-    public CUSTOMDATE: string;
-    public BRA_DESCE: string;
-}
-
+                
 class I_VW_GetCompStatus extends SecurityClass {
     constructor() {
         super();
@@ -401,6 +337,7 @@ class Table_Hagz extends SecurityClass {
     constructor() {
         super();
         this.ID = 0;
+        this.BranchCode = 0;   
         this.Num = 0;
         this.Name = "";
         this.Phone = "";
@@ -415,7 +352,8 @@ class Table_Hagz extends SecurityClass {
         
     }
     public ID: number;
-    public Num: number;
+    public BranchCode: number;
+    public Num: number;    
     public Name: string;
     public Phone: string;
     public Type: string;
@@ -506,14 +444,31 @@ class Table_Tim_work extends SecurityClass {
     constructor() {
         super();
         this.ID = 0;
+        this.BranchCode = 0;   
         this.Name = "";
         this.Cheak = false;
         this.StatusFlag = "";
     }
     public ID: number;
+    public BranchCode: number;      
     public Name: string;
     public Cheak: boolean;
     public StatusFlag: string;
+}
+
+
+
+
+class G_Branch extends SecurityClass {
+    constructor() {
+        super();
+        this.BranchCode = 0;    
+        this.NameA = "";
+        this.NameE = "";    
+    }
+    public BranchCode: number;   
+    public NameA: string;
+    public NameE: string;     
 }
 
 

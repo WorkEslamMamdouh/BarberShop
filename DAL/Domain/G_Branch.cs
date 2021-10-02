@@ -12,11 +12,10 @@ namespace DAL.Domain
     using System;
     using System.Collections.Generic;
     
-    public partial class Table_Tim_work
+    public partial class G_Branch
     {
-        public int ID { get; set; }
-        public Nullable<int> BranchCode { get; set; }
-        public string Name { get; set; }
-        public Nullable<bool> Cheak { get; set; }
+        public int BranchCode { get; set; }
+        public string NameA { get; set; }
+        public string NameE { get; set; }
     }
 }
