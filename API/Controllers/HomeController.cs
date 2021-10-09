@@ -157,6 +157,11 @@ namespace API.Controllers
                     Name = "الحجز الخاص بك غير موجود او تم الانتهتء من الخدمة الرجاء الحجز مره اخري";
                     db.Database.ExecuteSqlCommand("update [dbo].[SessionStorage] set [page] = 2  where ID_Device = '" + ID_Device + "'");
                 }
+                else if (StatusName == -4)
+                {
+                    Name = "لقد انتهيت من الحلاقه نشكرك علي زيارتك";
+                    db.Database.ExecuteSqlCommand("update [dbo].[SessionStorage] set [page] = 2  where ID_Device = '" + ID_Device + "'");
+                }
                 else
                 {
                     Name = StatusName.ToString();
