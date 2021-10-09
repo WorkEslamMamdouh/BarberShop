@@ -422,7 +422,10 @@ namespace API.Controllers
                 try
                 {
                       db.Database.ExecuteSqlCommand("Delete_Rows " + ID + ","+ BranchCode + "");
-                     
+
+                      db.Database.ExecuteSqlCommand("PushNotification");
+
+
 
                     return Ok(new BaseResponse(100));
 
@@ -444,6 +447,8 @@ namespace API.Controllers
                 try
                 {
                     var companies = db.Database.SqlQuery<Enter_Customer_Result>("Enter_Customer " + ID + ",'" + TR_Type + "' , "+ BranchCode + "").ToList();
+
+                    db.Database.ExecuteSqlCommand("PushNotification"); 
 
                     return Ok(new BaseResponse(companies));
 
