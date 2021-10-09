@@ -404,7 +404,8 @@ namespace API.Controllers
             {
                 try
                 {
-                    db.Database.ExecuteSqlCommand("Delete_Rows " + ID + " , "+ BranchCode + "");  
+                    db.Database.ExecuteSqlCommand("Delete_Rows " + ID + " , "+ BranchCode + "");
+                    db.Database.ExecuteSqlCommand("PushNotification"); 
                     db.Database.ExecuteSqlCommand("update [dbo].[SessionStorage] set [page] = 2 , [TR_Type] = null ,Id_Cust =null where ID_Device = '" + ID_Device + "'");
                      
                     return Ok(new BaseResponse(100));
